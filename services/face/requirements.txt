@@ -1,0 +1,11 @@
+# Face service needs only OpenCV (>=4.8 for YuNet 2023mar). No torch required.
+# Use the same distribution as ultralytics (pose) pulls in (opencv-python); never mix with opencv-python-headless in one env.
+opencv-python>=4.8
+numpy
+fastapi
+uvicorn[standard]
+python-multipart
+requests
+# tests only
+pytest
+httpx

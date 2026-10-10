@@ -1,0 +1,9 @@
+# torch is NOT pinned: install the CUDA 12.6 build first (see README), then the rest.
+torch
+transformers>=4.40
+fastapi
+uvicorn[standard]
+requests
+# tests only
+pytest
+httpx
