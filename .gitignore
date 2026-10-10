@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.venv/
+*.pt
+*.onnx
+*.pth
+*.safetensors
+models/
+.cache/
+uploads/
