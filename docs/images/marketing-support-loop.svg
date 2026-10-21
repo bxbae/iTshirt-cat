@@ -1,42 +1,51 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 1180" width="2000" height="1180" font-family="'Noto Sans CJK KR','Noto Sans KR','Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 1420" width="2000" height="1420" font-family="'Noto Sans CJK KR','Noto Sans KR','Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif">
 <defs><marker id="a-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#5a54d6"/></marker><marker id="a-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#2e9e6b"/></marker><marker id="a-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8a90b0"/></marker></defs>
-<rect width="2000" height="1180" fill="#f6f7fc"/>
+<rect width="2000" height="1420" fill="#f6f7fc"/>
 <text x="75" y="78" font-size="46" font-weight="800" fill="#1f2547" text-anchor="start">마케팅 ↔ 고객지원 대외 소통 루프</text>
-<text x="75" y="124" font-size="25" font-weight="400" fill="#6b7194" text-anchor="start">공지·프로모션 → 판정·경고 → 공지·FAQ 초안이 돌아오는 고리 · 모든 연동은 자동으로 오간다</text>
+<text x="75" y="124" font-size="25" font-weight="400" fill="#6b7194" text-anchor="start">공지·쿠폰 이벤트 → 판정·경고 → 급증 신호·보상 요청이 돌아오는 고리 · 모든 연동은 자동으로 오간다</text>
 <line x1="1290" y1="60" x2="1340" y2="60" stroke="#5a54d6" stroke-width="5" marker-end="url(#a-purple)"/>
 <text x="1356" y="68" font-size="24" font-weight="400" fill="#6b7194" text-anchor="start">마케팅 → 고객지원</text>
 <line x1="1620" y1="60" x2="1670" y2="60" stroke="#2e9e6b" stroke-width="5" marker-end="url(#a-green)"/>
 <text x="1686" y="68" font-size="24" font-weight="400" fill="#6b7194" text-anchor="start">고객지원 → 마케팅</text>
-<rect x="75" y="190" width="450" height="800" rx="40" fill="#e8f0fe" stroke="#2f6fd0" stroke-width="4"/>
+<rect x="75" y="190" width="450" height="1030" rx="40" fill="#e8f0fe" stroke="#2f6fd0" stroke-width="4"/>
 <text x="300" y="270" font-size="46" font-weight="800" fill="#1f4e99" text-anchor="middle">마케팅 Agent</text>
-<text x="300" y="322" font-size="26" font-weight="400" fill="#2f6fd0" text-anchor="middle">공지 게시 · 상품 관리</text>
-<text x="300" y="362" font-size="26" font-weight="400" fill="#2f6fd0" text-anchor="middle">프로모션 · 쿠폰 · 품절/재입고</text>
-<rect x="1475" y="190" width="450" height="800" rx="40" fill="#e8f0fe" stroke="#2f6fd0" stroke-width="4"/>
+<text x="300" y="322" font-size="26" font-weight="400" fill="#2f6fd0" text-anchor="middle">공지 게시 · 캠페인 · 쿠폰 지급</text>
+<text x="300" y="362" font-size="24" font-weight="400" fill="#2f6fd0" text-anchor="middle">publish_notice A · issue_coupon B/C</text>
+<rect x="1475" y="190" width="450" height="1030" rx="40" fill="#e8f0fe" stroke="#2f6fd0" stroke-width="4"/>
 <text x="1700" y="270" font-size="46" font-weight="800" fill="#1f4e99" text-anchor="middle">고객지원 Agent</text>
 <text x="1700" y="322" font-size="26" font-weight="400" fill="#2f6fd0" text-anchor="middle">문의 응대 · 보상 계산</text>
-<text x="1700" y="362" font-size="26" font-weight="400" fill="#2f6fd0" text-anchor="middle">영수증·정책 판정 · 입고 순 보상 큐</text>
+<text x="1700" y="362" font-size="24" font-weight="400" fill="#2f6fd0" text-anchor="middle">영수증·정책 판정 · 입고 순 보상 큐</text>
 <line x1="530" y1="300" x2="1470" y2="300" stroke="#5a54d6" stroke-width="5" marker-end="url(#a-purple)"/>
-<circle cx="670" cy="256" r="21" fill="#5a54d6"/>
-<text x="670" y="265" font-size="26" font-weight="700" fill="#fff" text-anchor="middle">①</text>
-<text x="710" y="264" font-size="31" font-weight="800" fill="#1f2547" text-anchor="start">이벤트·로그</text>
-<text x="1000" y="342" font-size="24" font-weight="400" fill="#6b7194" text-anchor="middle">비동기 이벤트 · 공지·프로모션·상품 변경을 결정 이유와 검토한 대안과 함께</text>
-<line x1="530" y1="445" x2="1470" y2="445" stroke="#5a54d6" stroke-width="5" marker-end="url(#a-purple)"/>
-<circle cx="670" cy="401" r="21" fill="#5a54d6"/>
-<text x="670" y="410" font-size="26" font-weight="700" fill="#fff" text-anchor="middle">②</text>
-<text x="710" y="409" font-size="31" font-weight="800" fill="#1f2547" text-anchor="start">질의: 이 문구, 과거에 분쟁이 된 적 있나요?</text>
-<text x="1000" y="487" font-size="24" font-weight="400" fill="#6b7194" text-anchor="middle">동기 질의 · 게시 전에 묻는다</text>
-<line x1="1470" y1="545" x2="530" y2="545" stroke="#2e9e6b" stroke-width="5" marker-end="url(#a-green)"/>
-<text x="1000" y="600" font-size="24" font-weight="400" fill="#6b7194" text-anchor="middle">판정·경고 응답 · 위험 문구 + 근거 카드 → 공지 초안에 경고로 첨부</text>
-<line x1="1470" y1="740" x2="530" y2="740" stroke="#2e9e6b" stroke-width="5" marker-end="url(#a-green)"/>
-<circle cx="670" cy="696" r="21" fill="#2e9e6b"/>
-<text x="670" y="705" font-size="26" font-weight="700" fill="#fff" text-anchor="middle">③</text>
-<text x="710" y="704" font-size="31" font-weight="800" fill="#1f2547" text-anchor="start">공지·FAQ 초안 제안</text>
-<text x="1000" y="782" font-size="24" font-weight="400" fill="#6b7194" text-anchor="middle">제안(초안) · 반복 문의 패턴 자동 분석 · 게시는 마케팅이 결정</text>
-<line x1="1470" y1="890" x2="530" y2="890" stroke="#2e9e6b" stroke-width="5" marker-end="url(#a-green)"/>
-<circle cx="670" cy="846" r="21" fill="#2e9e6b"/>
-<text x="670" y="855" font-size="26" font-weight="700" fill="#fff" text-anchor="middle">④</text>
-<text x="710" y="854" font-size="31" font-weight="800" fill="#1f2547" text-anchor="start">진행 중 공지·이벤트 조회</text>
-<text x="1000" y="932" font-size="24" font-weight="400" fill="#6b7194" text-anchor="middle">조회(읽기 전용) · 문의 응대·보상 계산 때 자동</text>
-<rect x="75" y="1030" width="1850" height="115" rx="34" fill="#fff7e6" stroke="#f2b84b" stroke-width="4"/>
-<text x="110" y="1078" font-size="29" font-weight="800" fill="#7a4b00" text-anchor="start">연동 규칙</text>
-<text x="110" y="1122" font-size="25" font-weight="400" fill="#7a4b00" text-anchor="start">판정 문장은 고객지원 한 곳에서만 만든다 · 고객지원은 읽기만 하고 공지는 초안까지만 제안한다 · 공지 게시·상품 변경은 마케팅이 결정한다</text></svg>
+<circle cx="620" cy="256" r="21" fill="#5a54d6"/>
+<text x="620" y="265" font-size="26" font-weight="700" fill="#fff" text-anchor="middle">①</text>
+<text x="660" y="264" font-size="30" font-weight="800" fill="#1f2547" text-anchor="start">이벤트·로그</text>
+<text x="1000" y="340" font-size="23" font-weight="400" fill="#6b7194" text-anchor="middle">비동기 이벤트 · 사실만 담고, 본문·근거는 ④로 조회</text>
+<text x="1000" y="374" font-size="21" font-weight="400" fill="#6b7194" text-anchor="middle">notice.published · campaign.created · coupon.issued</text>
+<line x1="530" y1="490" x2="1470" y2="490" stroke="#5a54d6" stroke-width="5" marker-end="url(#a-purple)"/>
+<circle cx="620" cy="446" r="21" fill="#5a54d6"/>
+<text x="620" y="455" font-size="26" font-weight="700" fill="#fff" text-anchor="middle">②</text>
+<text x="660" y="454" font-size="30" font-weight="800" fill="#1f2547" text-anchor="start">질의(선택): 이 문구, 과거에 분쟁이 된 적 있나요?</text>
+<text x="1000" y="530" font-size="23" font-weight="400" fill="#6b7194" text-anchor="middle">동기 읽기 요청 · notice_check · 게시 전에 묻는다</text>
+<line x1="1470" y1="600" x2="530" y2="600" stroke="#2e9e6b" stroke-width="5" marker-end="url(#a-green)"/>
+<text x="1000" y="652" font-size="23" font-weight="400" fill="#6b7194" text-anchor="middle">판정·경고 응답 · 위험 문구 + 근거 카드 → 공지 초안에 경고로 첨부</text>
+<line x1="1470" y1="780" x2="530" y2="780" stroke="#2e9e6b" stroke-width="5" marker-end="url(#a-green)"/>
+<circle cx="620" cy="736" r="21" fill="#2e9e6b"/>
+<text x="620" y="745" font-size="26" font-weight="700" fill="#fff" text-anchor="middle">③</text>
+<text x="660" y="744" font-size="30" font-weight="800" fill="#1f2547" text-anchor="start">문의 급증 신호 — support.inquiry_surge</text>
+<text x="1000" y="820" font-size="23" font-weight="400" fill="#6b7194" text-anchor="middle">이벤트(사실) + Task 근거 · 공식 초안은 마케팅 draft_notice가 작성</text>
+<line x1="1470" y1="930" x2="530" y2="930" stroke="#2e9e6b" stroke-width="5" marker-end="url(#a-green)"/>
+<circle cx="620" cy="886" r="21" fill="#2e9e6b"/>
+<text x="620" y="895" font-size="26" font-weight="700" fill="#fff" text-anchor="middle">④</text>
+<text x="660" y="894" font-size="30" font-weight="800" fill="#1f2547" text-anchor="start">공지 조회 — get_notice</text>
+<text x="1000" y="970" font-size="23" font-weight="400" fill="#6b7194" text-anchor="middle">읽기 전용 · 본문·사실 필드·근거 · 문의 응대·보상 계산 때 자동</text>
+<line x1="1470" y1="1075" x2="530" y2="1075" stroke="#2e9e6b" stroke-width="5" marker-end="url(#a-green)"/>
+<circle cx="620" cy="1031" r="21" fill="#2e9e6b"/>
+<text x="620" y="1040" font-size="26" font-weight="700" fill="#fff" text-anchor="middle">⑤</text>
+<text x="660" y="1039" font-size="30" font-weight="800" fill="#1f2547" text-anchor="start">보상 요청 — issue_coupon</text>
+<text x="1000" y="1115" font-size="23" font-weight="400" fill="#6b7194" text-anchor="middle">단가·대상·사유 · 마케팅이 코드로 총액 계산 → 재무/정산 교차검증(B), 기준 이상 C 보류</text>
+<line x1="530" y1="1160" x2="1470" y2="1160" stroke="#5a54d6" stroke-width="5" marker-end="url(#a-purple)"/>
+<text x="1000" y="1200" font-size="23" font-weight="400" fill="#6b7194" text-anchor="middle">결과 회신 · completed / input-required (같은 Task의 결과)</text>
+<rect x="75" y="1255" width="1850" height="140" rx="34" fill="#fff7e6" stroke="#f2b84b" stroke-width="4"/>
+<text x="110" y="1300" font-size="29" font-weight="800" fill="#7a4b00" text-anchor="start">연동 규칙</text>
+<text x="110" y="1342" font-size="25" font-weight="400" fill="#7a4b00" text-anchor="start">판정 문장은 고객지원 한 곳에서만 만든다 · 고객지원은 읽기와 요청까지만 한다 · 공지 게시와 쿠폰 지급은 마케팅이 결정한다</text>
+<text x="110" y="1380" font-size="25" font-weight="400" fill="#7a4b00" text-anchor="start">근거 없는 값(예: 복구 예상 시각)은 양쪽 모두 &quot;확인할 수 없음&quot;으로 둔다</text></svg>

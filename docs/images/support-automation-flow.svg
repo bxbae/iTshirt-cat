@@ -36,17 +36,18 @@
 <text x="275.0" y="582" font-size="31" font-weight="800" fill="#7a4b00" text-anchor="middle">승인 (사람)</text>
 <text x="275.0" y="624" font-size="22" font-weight="400" fill="#6b7194" text-anchor="middle">한도 초과·영수증 불일치만 확인</text>
 <rect x="75" y="800" width="400" height="150" rx="26" fill="#e8e8fc" stroke="#5a54d6" stroke-width="4"/>
-<text x="275.0" y="862" font-size="31" font-weight="800" fill="#1f2547" text-anchor="middle">자동 발송 · 지급</text>
-<text x="275.0" y="904" font-size="22" font-weight="400" fill="#6b7194" text-anchor="middle">실행 관문 → 등급 판정 → 실행</text>
+<text x="275.0" y="862" font-size="31" font-weight="800" fill="#1f2547" text-anchor="middle">요청 · 발송</text>
+<text x="275.0" y="904" font-size="22" font-weight="400" fill="#6b7194" text-anchor="middle">환불: 관문(B) · 보상: 마케팅 ⑤</text>
+<text x="275.0" y="932" font-size="20" font-weight="400" fill="#6b7194" text-anchor="middle">안내는 결과를 받은 뒤</text>
 <rect x="555" y="800" width="400" height="150" rx="26" fill="#e6f6ee" stroke="#2e9e6b" stroke-width="4"/>
 <text x="755.0" y="862" font-size="31" font-weight="800" fill="#1f2547" text-anchor="middle">사건 카드</text>
 <text x="755.0" y="904" font-size="22" font-weight="400" fill="#6b7194" text-anchor="middle">요약 · 판정 · 근거 → 인사에 전달</text>
 <rect x="1035" y="800" width="400" height="150" rx="26" fill="#e8e8fc" stroke="#5a54d6" stroke-width="4"/>
 <text x="1235.0" y="862" font-size="31" font-weight="800" fill="#1f2547" text-anchor="middle">패턴 분석 ③</text>
-<text x="1235.0" y="904" font-size="22" font-weight="400" fill="#6b7194" text-anchor="middle">반복 문의 감지 → 공지·FAQ 초안</text>
+<text x="1235.0" y="904" font-size="22" font-weight="400" fill="#6b7194" text-anchor="middle">반복 문의 감지 → 급증 신호</text>
 <rect x="1515" y="800" width="400" height="150" rx="26" fill="#ffffff" stroke="#c9cde0" stroke-width="4"/>
-<text x="1715.0" y="862" font-size="31" font-weight="800" fill="#1f2547" text-anchor="middle">마케팅에 제안</text>
-<text x="1715.0" y="904" font-size="22" font-weight="400" fill="#6b7194" text-anchor="middle">게시는 마케팅이 결정</text>
+<text x="1715.0" y="862" font-size="31" font-weight="800" fill="#1f2547" text-anchor="middle">마케팅에 급증 신호</text>
+<text x="1715.0" y="904" font-size="22" font-weight="400" fill="#6b7194" text-anchor="middle">공지 여부는 마케팅이 결정</text>
 <line x1="475" y1="335.0" x2="551" y2="335.0" stroke="gray" stroke-width="4" marker-end="url(#a-gray)"/>
 <line x1="955" y1="335.0" x2="1031" y2="335.0" stroke="gray" stroke-width="4" marker-end="url(#a-gray)"/>
 <line x1="1435" y1="335.0" x2="1511" y2="335.0" stroke="gray" stroke-width="4" marker-end="url(#a-gray)"/>

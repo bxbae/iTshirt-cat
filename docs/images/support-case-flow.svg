@@ -1,64 +1,77 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 1480" width="2000" height="1480" font-family="'Noto Sans CJK KR','Noto Sans KR','Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 1680" width="2000" height="1680" font-family="'Noto Sans CJK KR','Noto Sans KR','Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif">
 <defs><marker id="a-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#5a54d6"/></marker><marker id="a-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#2e9e6b"/></marker><marker id="a-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8a90b0"/></marker></defs>
-<rect width="2000" height="1480" fill="#f6f7fc"/>
+<rect width="2000" height="1680" fill="#f6f7fc"/>
 <text x="75" y="70" font-size="44" font-weight="800" fill="#1f2547" text-anchor="start">대표 사건 흐름: 불량 신청 → 반품 입고 → 보상 지급</text>
-<text x="75" y="112" font-size="25" font-weight="400" fill="#6b7194" text-anchor="start">사건 하나 = contextId 하나 · 모든 단계가 같은 contextId로 묶인다</text>
-<rect x="75" y="160" width="360" height="1190" rx="30" fill="#ffffff" stroke="#c9cde0" stroke-width="3"/>
-<text x="255.0" y="214" font-size="30" font-weight="800" fill="#1f2547" text-anchor="middle">고객</text>
-<rect x="460" y="160" width="360" height="1190" rx="30" fill="#ffffff" stroke="#c9cde0" stroke-width="3"/>
-<text x="640.0" y="214" font-size="30" font-weight="800" fill="#1f2547" text-anchor="middle">판매 사이트</text>
-<rect x="845" y="160" width="360" height="1190" rx="30" fill="#ffffff" stroke="#c9cde0" stroke-width="3"/>
-<text x="1025.0" y="214" font-size="30" font-weight="800" fill="#1f2547" text-anchor="middle">통합 에이전트</text>
-<rect x="1230" y="160" width="360" height="1190" rx="30" fill="#e8f0fe" stroke="#2f6fd0" stroke-width="4"/>
-<text x="1410.0" y="214" font-size="30" font-weight="800" fill="#1f4e99" text-anchor="middle">support (고객지원)</text>
-<rect x="1615" y="160" width="360" height="1190" rx="30" fill="#ffffff" stroke="#c9cde0" stroke-width="3"/>
-<text x="1795.0" y="214" font-size="30" font-weight="800" fill="#1f2547" text-anchor="middle">재무/정산</text>
-<rect x="482" y="262" width="316" height="112" rx="20" fill="#ffffff" stroke="#5a54d6" stroke-width="4"/>
-<circle cx="490" cy="270" r="21" fill="#5a54d6"/>
-<text x="490" y="279" font-size="26" font-weight="700" fill="#fff" text-anchor="middle">1</text>
-<text x="640.0" y="304" font-size="23" font-weight="800" fill="#1f2547" text-anchor="middle">문의 이벤트 발행</text>
-<text x="640.0" y="334" font-size="19" font-weight="400" fill="#6b7194" text-anchor="middle">새 contextId 발급</text>
-<rect x="867" y="396" width="316" height="112" rx="20" fill="#ffffff" stroke="#5a54d6" stroke-width="4"/>
-<circle cx="875" cy="404" r="21" fill="#5a54d6"/>
-<text x="875" y="413" font-size="26" font-weight="700" fill="#fff" text-anchor="middle">2</text>
-<text x="1025.0" y="438" font-size="23" font-weight="800" fill="#1f2547" text-anchor="middle">claim_evaluate 요청</text>
-<text x="1025.0" y="468" font-size="19" font-weight="400" fill="#6b7194" text-anchor="middle">support에 판정을 맡김</text>
-<rect x="1252" y="530" width="316" height="112" rx="20" fill="#ffffff" stroke="#5a54d6" stroke-width="4"/>
-<circle cx="1260" cy="538" r="21" fill="#5a54d6"/>
-<text x="1260" y="547" font-size="26" font-weight="700" fill="#fff" text-anchor="middle">3</text>
-<text x="1410.0" y="572" font-size="23" font-weight="800" fill="#1f2547" text-anchor="middle">영수증 조회 · 판정</text>
-<text x="1410.0" y="602" font-size="19" font-weight="400" fill="#6b7194" text-anchor="middle">사진 없음 → input-required</text>
-<rect x="97" y="664" width="316" height="112" rx="20" fill="#ffffff" stroke="#2e9e6b" stroke-width="4"/>
-<circle cx="105" cy="672" r="21" fill="#2e9e6b"/>
-<text x="105" y="681" font-size="26" font-weight="700" fill="#fff" text-anchor="middle">4</text>
-<text x="255.0" y="706" font-size="23" font-weight="800" fill="#1f2547" text-anchor="middle">사진 첨부</text>
-<text x="255.0" y="736" font-size="19" font-weight="400" fill="#6b7194" text-anchor="middle">support 재판정:</text>
-<text x="255.0" y="760" font-size="19" font-weight="400" fill="#6b7194" text-anchor="middle">승인 (입고 후 지급)</text>
-<rect x="482" y="798" width="316" height="112" rx="20" fill="#ffffff" stroke="#5a54d6" stroke-width="4"/>
-<circle cx="490" cy="806" r="21" fill="#5a54d6"/>
-<text x="490" y="815" font-size="26" font-weight="700" fill="#fff" text-anchor="middle">5</text>
-<text x="640.0" y="840" font-size="23" font-weight="800" fill="#1f2547" text-anchor="middle">return.received</text>
-<text x="640.0" y="870" font-size="19" font-weight="400" fill="#6b7194" text-anchor="middle">입고 시각 = 큐 줄 순서</text>
-<rect x="1252" y="932" width="316" height="112" rx="20" fill="#ffffff" stroke="#5a54d6" stroke-width="4"/>
-<circle cx="1260" cy="940" r="21" fill="#5a54d6"/>
-<text x="1260" y="949" font-size="26" font-weight="700" fill="#fff" text-anchor="middle">6</text>
-<text x="1410.0" y="974" font-size="23" font-weight="800" fill="#1f2547" text-anchor="middle">compensation_pay</text>
-<text x="1410.0" y="1004" font-size="19" font-weight="400" fill="#6b7194" text-anchor="middle">큐 순서 → execute() 등급 B</text>
-<rect x="1637" y="1066" width="316" height="112" rx="20" fill="#ffffff" stroke="#2e9e6b" stroke-width="4"/>
-<circle cx="1645" cy="1074" r="21" fill="#2e9e6b"/>
-<text x="1645" y="1083" font-size="26" font-weight="700" fill="#fff" text-anchor="middle">7</text>
-<text x="1795.0" y="1108" font-size="23" font-weight="800" fill="#1f2547" text-anchor="middle">2차 확인 → 승인</text>
-<text x="1795.0" y="1138" font-size="19" font-weight="400" fill="#6b7194" text-anchor="middle">금액·대상 규칙 검증</text>
-<rect x="1252" y="1200" width="316" height="112" rx="20" fill="#ffffff" stroke="#2e9e6b" stroke-width="4"/>
-<circle cx="1260" cy="1208" r="21" fill="#2e9e6b"/>
-<text x="1260" y="1217" font-size="26" font-weight="700" fill="#fff" text-anchor="middle">8</text>
-<text x="1410.0" y="1242" font-size="23" font-weight="800" fill="#1f2547" text-anchor="middle">지급 · 사후 검증</text>
-<text x="1410.0" y="1272" font-size="19" font-weight="400" fill="#6b7194" text-anchor="middle">completed · 감사 로그 · 인사 기록</text>
-<path d="M 798 318.0 H 810 V 452.0 H 864" fill="none" stroke="gray" stroke-width="3" marker-end="url(#a-gray)" stroke-linejoin="round"/>
-<path d="M 1183 452.0 H 1195 V 586.0 H 1249" fill="none" stroke="gray" stroke-width="3" marker-end="url(#a-gray)" stroke-linejoin="round"/>
-<path d="M 1252 586.0 H 1240 V 720.0 H 416" fill="none" stroke="gray" stroke-width="3" marker-end="url(#a-gray)" stroke-linejoin="round"/>
-<path d="M 413 720.0 H 425 V 854.0 H 479" fill="none" stroke="gray" stroke-width="3" marker-end="url(#a-gray)" stroke-linejoin="round"/>
-<path d="M 798 854.0 H 810 V 988.0 H 1249" fill="none" stroke="gray" stroke-width="3" marker-end="url(#a-gray)" stroke-linejoin="round"/>
-<path d="M 1568 988.0 H 1580 V 1122.0 H 1634" fill="none" stroke="gray" stroke-width="3" marker-end="url(#a-gray)" stroke-linejoin="round"/>
-<path d="M 1637 1122.0 H 1625 V 1256.0 H 1571" fill="none" stroke="gray" stroke-width="3" marker-end="url(#a-gray)" stroke-linejoin="round"/>
-<text x="75" y="1425" font-size="23" font-weight="400" fill="#6b7194" text-anchor="start">지급(6~8)은 실행 관문을 거치고, 3·4의 고객 입력은 untrusted 필드로만 다룬다.</text></svg>
+<text x="75" y="112" font-size="24" font-weight="400" fill="#6b7194" text-anchor="start">사건 하나 = contextId 하나 · 보상은 마케팅 issue_coupon, 재무/정산 교차검증을 거쳐 지급 (현금 환불은 별도 관문)</text>
+<rect x="60" y="160" width="300" height="1470" rx="30" fill="#ffffff" stroke="#c9cde0" stroke-width="3"/>
+<text x="210.0" y="214" font-size="27" font-weight="800" fill="#1f2547" text-anchor="middle">고객</text>
+<rect x="382" y="160" width="300" height="1470" rx="30" fill="#ffffff" stroke="#c9cde0" stroke-width="3"/>
+<text x="532.0" y="214" font-size="27" font-weight="800" fill="#1f2547" text-anchor="middle">판매 사이트</text>
+<rect x="704" y="160" width="300" height="1470" rx="30" fill="#ffffff" stroke="#c9cde0" stroke-width="3"/>
+<text x="854.0" y="214" font-size="27" font-weight="800" fill="#1f2547" text-anchor="middle">통합 에이전트</text>
+<rect x="1026" y="160" width="300" height="1470" rx="30" fill="#e8f0fe" stroke="#2f6fd0" stroke-width="4"/>
+<text x="1176.0" y="214" font-size="27" font-weight="800" fill="#1f4e99" text-anchor="middle">support (고객지원)</text>
+<rect x="1348" y="160" width="300" height="1470" rx="30" fill="#ffffff" stroke="#c9cde0" stroke-width="3"/>
+<text x="1498.0" y="214" font-size="27" font-weight="800" fill="#1f2547" text-anchor="middle">마케팅</text>
+<rect x="1670" y="160" width="300" height="1470" rx="30" fill="#ffffff" stroke="#c9cde0" stroke-width="3"/>
+<text x="1820.0" y="214" font-size="27" font-weight="800" fill="#1f2547" text-anchor="middle">재무/정산</text>
+<rect x="400" y="262" width="264" height="112" rx="20" fill="#ffffff" stroke="#5a54d6" stroke-width="4"/>
+<circle cx="408" cy="270" r="21" fill="#5a54d6"/>
+<text x="408" y="279" font-size="26" font-weight="700" fill="#fff" text-anchor="middle">1</text>
+<text x="532.0" y="304" font-size="21" font-weight="800" fill="#1f2547" text-anchor="middle">문의 이벤트 발행</text>
+<text x="532.0" y="334" font-size="18" font-weight="400" fill="#6b7194" text-anchor="middle">context_id는 null</text>
+<rect x="722" y="396" width="264" height="112" rx="20" fill="#ffffff" stroke="#5a54d6" stroke-width="4"/>
+<circle cx="730" cy="404" r="21" fill="#5a54d6"/>
+<text x="730" y="413" font-size="26" font-weight="700" fill="#fff" text-anchor="middle">2</text>
+<text x="854.0" y="438" font-size="21" font-weight="800" fill="#1f2547" text-anchor="middle">contextId 부여 · 분배</text>
+<text x="854.0" y="468" font-size="18" font-weight="400" fill="#6b7194" text-anchor="middle">support에 claim_evaluate</text>
+<rect x="1044" y="530" width="264" height="112" rx="20" fill="#ffffff" stroke="#5a54d6" stroke-width="4"/>
+<circle cx="1052" cy="538" r="21" fill="#5a54d6"/>
+<text x="1052" y="547" font-size="26" font-weight="700" fill="#fff" text-anchor="middle">3</text>
+<text x="1176.0" y="572" font-size="21" font-weight="800" fill="#1f2547" text-anchor="middle">영수증 조회 · 판정</text>
+<text x="1176.0" y="602" font-size="18" font-weight="400" fill="#6b7194" text-anchor="middle">사진 없음 → input-required</text>
+<rect x="78" y="664" width="264" height="112" rx="20" fill="#ffffff" stroke="#2e9e6b" stroke-width="4"/>
+<circle cx="86" cy="672" r="21" fill="#2e9e6b"/>
+<text x="86" y="681" font-size="26" font-weight="700" fill="#fff" text-anchor="middle">4</text>
+<text x="210.0" y="706" font-size="21" font-weight="800" fill="#1f2547" text-anchor="middle">사진 첨부</text>
+<text x="210.0" y="736" font-size="18" font-weight="400" fill="#6b7194" text-anchor="middle">support 재판정:</text>
+<text x="210.0" y="760" font-size="18" font-weight="400" fill="#6b7194" text-anchor="middle">승인 (입고 후 지급)</text>
+<rect x="400" y="798" width="264" height="112" rx="20" fill="#ffffff" stroke="#5a54d6" stroke-width="4"/>
+<circle cx="408" cy="806" r="21" fill="#5a54d6"/>
+<text x="408" y="815" font-size="26" font-weight="700" fill="#fff" text-anchor="middle">5</text>
+<text x="532.0" y="840" font-size="21" font-weight="800" fill="#1f2547" text-anchor="middle">return.received</text>
+<text x="532.0" y="870" font-size="18" font-weight="400" fill="#6b7194" text-anchor="middle">입고 시각 = 큐 줄 순서</text>
+<rect x="1044" y="932" width="264" height="112" rx="20" fill="#ffffff" stroke="#5a54d6" stroke-width="4"/>
+<circle cx="1052" cy="940" r="21" fill="#5a54d6"/>
+<text x="1052" y="949" font-size="26" font-weight="700" fill="#fff" text-anchor="middle">6</text>
+<text x="1176.0" y="974" font-size="21" font-weight="800" fill="#1f2547" text-anchor="middle">issue_coupon 요청</text>
+<text x="1176.0" y="1004" font-size="18" font-weight="400" fill="#6b7194" text-anchor="middle">큐 순서 · 보상 2,000원</text>
+<rect x="1366" y="1066" width="264" height="112" rx="20" fill="#ffffff" stroke="#5a54d6" stroke-width="4"/>
+<circle cx="1374" cy="1074" r="21" fill="#5a54d6"/>
+<text x="1374" y="1083" font-size="26" font-weight="700" fill="#fff" text-anchor="middle">7</text>
+<text x="1498.0" y="1108" font-size="21" font-weight="800" fill="#1f2547" text-anchor="middle">총액 계산 · 교차검증</text>
+<text x="1498.0" y="1138" font-size="18" font-weight="400" fill="#6b7194" text-anchor="middle">건수 × 단가 (코드)</text>
+<rect x="1688" y="1200" width="264" height="112" rx="20" fill="#ffffff" stroke="#2e9e6b" stroke-width="4"/>
+<circle cx="1696" cy="1208" r="21" fill="#2e9e6b"/>
+<text x="1696" y="1217" font-size="26" font-weight="700" fill="#fff" text-anchor="middle">8</text>
+<text x="1820.0" y="1242" font-size="21" font-weight="800" fill="#1f2547" text-anchor="middle">기준표 확인 → 승인</text>
+<text x="1820.0" y="1272" font-size="18" font-weight="400" fill="#6b7194" text-anchor="middle">기준 이상이면 C 보류</text>
+<rect x="1366" y="1334" width="264" height="112" rx="20" fill="#ffffff" stroke="#2e9e6b" stroke-width="4"/>
+<circle cx="1374" cy="1342" r="21" fill="#2e9e6b"/>
+<text x="1374" y="1351" font-size="26" font-weight="700" fill="#fff" text-anchor="middle">9</text>
+<text x="1498.0" y="1376" font-size="21" font-weight="800" fill="#1f2547" text-anchor="middle">coupon.issued 발행</text>
+<text x="1498.0" y="1406" font-size="18" font-weight="400" fill="#6b7194" text-anchor="middle">execute() → 판매 사이트 반영</text>
+<rect x="1044" y="1468" width="264" height="112" rx="20" fill="#ffffff" stroke="#2e9e6b" stroke-width="4"/>
+<circle cx="1052" cy="1476" r="21" fill="#2e9e6b"/>
+<text x="1052" y="1485" font-size="26" font-weight="700" fill="#fff" text-anchor="middle">10</text>
+<text x="1176.0" y="1510" font-size="21" font-weight="800" fill="#1f2547" text-anchor="middle">결과 수신 · 고객 안내</text>
+<text x="1176.0" y="1540" font-size="18" font-weight="400" fill="#6b7194" text-anchor="middle">completed · 감사 로그</text>
+<path d="M 664 318.0 H 674 V 452.0 H 719" fill="none" stroke="gray" stroke-width="3" marker-end="url(#a-gray)" stroke-linejoin="round"/>
+<path d="M 986 452.0 H 996 V 586.0 H 1041" fill="none" stroke="gray" stroke-width="3" marker-end="url(#a-gray)" stroke-linejoin="round"/>
+<path d="M 1044 586.0 H 1034 V 720.0 H 345" fill="none" stroke="gray" stroke-width="3" marker-end="url(#a-gray)" stroke-linejoin="round"/>
+<path d="M 342 720.0 H 352 V 854.0 H 397" fill="none" stroke="gray" stroke-width="3" marker-end="url(#a-gray)" stroke-linejoin="round"/>
+<path d="M 664 854.0 H 674 V 988.0 H 1041" fill="none" stroke="gray" stroke-width="3" marker-end="url(#a-gray)" stroke-linejoin="round"/>
+<path d="M 1308 988.0 H 1318 V 1122.0 H 1363" fill="none" stroke="gray" stroke-width="3" marker-end="url(#a-gray)" stroke-linejoin="round"/>
+<path d="M 1630 1122.0 H 1640 V 1256.0 H 1685" fill="none" stroke="gray" stroke-width="3" marker-end="url(#a-gray)" stroke-linejoin="round"/>
+<path d="M 1688 1256.0 H 1678 V 1390.0 H 1633" fill="none" stroke="gray" stroke-width="3" marker-end="url(#a-gray)" stroke-linejoin="round"/>
+<path d="M 1366 1390.0 H 1356 V 1524.0 H 1311" fill="none" stroke="gray" stroke-width="3" marker-end="url(#a-gray)" stroke-linejoin="round"/></svg>
