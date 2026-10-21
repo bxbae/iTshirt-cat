@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 1060" width="2000" height="1060" font-family="'Noto Sans CJK KR','Noto Sans KR','Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif">
+<defs><marker id="a-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#5a54d6"/></marker><marker id="a-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#2e9e6b"/></marker><marker id="a-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8a90b0"/></marker></defs>
+<rect width="2000" height="1060" fill="#f6f7fc"/>
+<text x="75" y="70" font-size="46" font-weight="800" fill="#1f2547" text-anchor="start">고객지원 Agent 자동화 흐름</text>
+<text x="75" y="112" font-size="25" font-weight="400" fill="#6b7194" text-anchor="start">사람은 확인·승인과 짧은 답변만 하고, 나머지는 자동으로 처리</text>
+<rect x="1230" y="48" width="34" height="34" rx="8" fill="#e8e8fc" stroke="#5a54d6" stroke-width="3"/>
+<text x="1276" y="76" font-size="24" font-weight="400" fill="#6b7194" text-anchor="start">자동</text>
+<rect x="1420" y="48" width="34" height="34" rx="8" fill="#fff7e6" stroke="#f2b84b" stroke-width="3"/>
+<text x="1466" y="76" font-size="24" font-weight="400" fill="#6b7194" text-anchor="start">사람</text>
+<rect x="1610" y="48" width="34" height="34" rx="8" fill="#ffffff" stroke="#c9cde0" stroke-width="3"/>
+<text x="1656" y="76" font-size="24" font-weight="400" fill="#6b7194" text-anchor="start">입력</text>
+<rect x="1800" y="48" width="34" height="34" rx="8" fill="#e6f6ee" stroke="#2e9e6b" stroke-width="3"/>
+<text x="1846" y="76" font-size="24" font-weight="400" fill="#6b7194" text-anchor="start">카드(기록)</text>
+<rect x="75" y="260" width="400" height="150" rx="26" fill="#ffffff" stroke="#c9cde0" stroke-width="4"/>
+<text x="275.0" y="322" font-size="31" font-weight="800" fill="#1f2547" text-anchor="middle">문의 접수·신청</text>
+<text x="275.0" y="364" font-size="22" font-weight="400" fill="#6b7194" text-anchor="middle">판매 사이트 문의 위젯 · 클레임</text>
+<rect x="555" y="260" width="400" height="150" rx="26" fill="#e8e8fc" stroke="#5a54d6" stroke-width="4"/>
+<text x="755.0" y="322" font-size="31" font-weight="800" fill="#1f2547" text-anchor="middle">자동 분류·정책 검색</text>
+<text x="755.0" y="364" font-size="22" font-weight="400" fill="#6b7194" text-anchor="middle">개인정보 마스킹 → 분류 → 근거 검색</text>
+<rect x="1035" y="260" width="400" height="150" rx="26" fill="#e8e8fc" stroke="#5a54d6" stroke-width="4"/>
+<text x="1235.0" y="322" font-size="31" font-weight="800" fill="#1f2547" text-anchor="middle">영수증·정책 판정</text>
+<text x="1235.0" y="364" font-size="22" font-weight="400" fill="#6b7194" text-anchor="middle">규칙 엔진 · 같은 입력 = 같은 결과</text>
+<rect x="1515" y="260" width="400" height="150" rx="26" fill="#e6f6ee" stroke="#2e9e6b" stroke-width="4"/>
+<text x="1715.0" y="322" font-size="31" font-weight="800" fill="#1f2547" text-anchor="middle">판정 카드</text>
+<text x="1715.0" y="364" font-size="22" font-weight="400" fill="#6b7194" text-anchor="middle">결과 · 금액 · 규칙 번호 · 근거</text>
+<rect x="1515" y="520" width="400" height="150" rx="26" fill="#e8e8fc" stroke="#5a54d6" stroke-width="4"/>
+<text x="1715.0" y="582" font-size="31" font-weight="800" fill="#1f2547" text-anchor="middle">마케팅 조회 ④</text>
+<text x="1715.0" y="624" font-size="22" font-weight="400" fill="#6b7194" text-anchor="middle">유효 공지 · 쿠폰 · 품절 확인</text>
+<rect x="1035" y="520" width="400" height="150" rx="26" fill="#e8e8fc" stroke="#5a54d6" stroke-width="4"/>
+<text x="1235.0" y="582" font-size="31" font-weight="800" fill="#1f2547" text-anchor="middle">답변 초안 · 가드</text>
+<text x="1235.0" y="624" font-size="22" font-weight="400" fill="#6b7194" text-anchor="middle">초안 3종 · 약속·금액 검증</text>
+<rect x="555" y="520" width="400" height="150" rx="26" fill="#e8e8fc" stroke="#5a54d6" stroke-width="4"/>
+<text x="755.0" y="582" font-size="31" font-weight="800" fill="#1f2547" text-anchor="middle">빈 자리 질문</text>
+<text x="755.0" y="624" font-size="22" font-weight="400" fill="#6b7194" text-anchor="middle">사진 요청 등 짧게 고객에게 질문</text>
+<rect x="75" y="520" width="400" height="150" rx="26" fill="#fff7e6" stroke="#f2b84b" stroke-width="4"/>
+<text x="275.0" y="582" font-size="31" font-weight="800" fill="#7a4b00" text-anchor="middle">승인 (사람)</text>
+<text x="275.0" y="624" font-size="22" font-weight="400" fill="#6b7194" text-anchor="middle">한도 초과·영수증 불일치만 확인</text>
+<rect x="75" y="800" width="400" height="150" rx="26" fill="#e8e8fc" stroke="#5a54d6" stroke-width="4"/>
+<text x="275.0" y="862" font-size="31" font-weight="800" fill="#1f2547" text-anchor="middle">자동 발송 · 지급</text>
+<text x="275.0" y="904" font-size="22" font-weight="400" fill="#6b7194" text-anchor="middle">실행 관문 → 등급 판정 → 실행</text>
+<rect x="555" y="800" width="400" height="150" rx="26" fill="#e6f6ee" stroke="#2e9e6b" stroke-width="4"/>
+<text x="755.0" y="862" font-size="31" font-weight="800" fill="#1f2547" text-anchor="middle">사건 카드</text>
+<text x="755.0" y="904" font-size="22" font-weight="400" fill="#6b7194" text-anchor="middle">요약 · 판정 · 근거 → 인사에 전달</text>
+<rect x="1035" y="800" width="400" height="150" rx="26" fill="#e8e8fc" stroke="#5a54d6" stroke-width="4"/>
+<text x="1235.0" y="862" font-size="31" font-weight="800" fill="#1f2547" text-anchor="middle">패턴 분석 ③</text>
+<text x="1235.0" y="904" font-size="22" font-weight="400" fill="#6b7194" text-anchor="middle">반복 문의 감지 → 공지·FAQ 초안</text>
+<rect x="1515" y="800" width="400" height="150" rx="26" fill="#ffffff" stroke="#c9cde0" stroke-width="4"/>
+<text x="1715.0" y="862" font-size="31" font-weight="800" fill="#1f2547" text-anchor="middle">마케팅에 제안</text>
+<text x="1715.0" y="904" font-size="22" font-weight="400" fill="#6b7194" text-anchor="middle">게시는 마케팅이 결정</text>
+<line x1="475" y1="335.0" x2="551" y2="335.0" stroke="gray" stroke-width="4" marker-end="url(#a-gray)"/>
+<line x1="955" y1="335.0" x2="1031" y2="335.0" stroke="gray" stroke-width="4" marker-end="url(#a-gray)"/>
+<line x1="1435" y1="335.0" x2="1511" y2="335.0" stroke="gray" stroke-width="4" marker-end="url(#a-gray)"/>
+<line x1="1715.0" y1="410" x2="1715.0" y2="516" stroke="gray" stroke-width="4" marker-end="url(#a-gray)"/>
+<line x1="1515" y1="595.0" x2="1439" y2="595.0" stroke="gray" stroke-width="4" marker-end="url(#a-gray)"/>
+<line x1="1035" y1="595.0" x2="959" y2="595.0" stroke="gray" stroke-width="4" marker-end="url(#a-gray)"/>
+<line x1="555" y1="595.0" x2="479" y2="595.0" stroke="gray" stroke-width="4" marker-end="url(#a-gray)"/>
+<line x1="275.0" y1="670" x2="275.0" y2="796" stroke="gray" stroke-width="4" marker-end="url(#a-gray)"/>
+<line x1="475" y1="875.0" x2="551" y2="875.0" stroke="gray" stroke-width="4" marker-end="url(#a-gray)"/>
+<line x1="955" y1="875.0" x2="1031" y2="875.0" stroke="gray" stroke-width="4" marker-end="url(#a-gray)"/>
+<line x1="1435" y1="875.0" x2="1511" y2="875.0" stroke="gray" stroke-width="4" marker-end="url(#a-gray)"/>
+<text x="1733.0" y="473.0" font-size="22" font-weight="400" fill="#6b7194" text-anchor="start">카드로 초안을 작성</text>
+<text x="293.0" y="743.0" font-size="22" font-weight="400" fill="#6b7194" text-anchor="start">승인 후 실행</text>
+<path d="M 755.0 950 V 1000 H 36 V 196 H 1235.0 V 256" fill="none" stroke="#2e9e6b" stroke-width="4" stroke-dasharray="14 10" marker-end="url(#a-green)" stroke-linejoin="round"/>
+<text x="560" y="170" font-size="24" font-weight="700" fill="#2e9e6b" text-anchor="start">새 사건 카드가 유사 사례 근거가 되어 다음 판정·응대의 재료가 됨</text></svg>
