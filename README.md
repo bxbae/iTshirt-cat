@@ -12,7 +12,8 @@
 ```bash
 git clone https://github.com/bxbae/iTshirt-cat && cd iTshirt-cat
 git checkout claude/inspiring-newton-m40h9p
-./start.sh        # 쇼핑몰 http://localhost:3000 · 상담원 http://localhost:3000/admin
+./start.sh        # (Windows: powershell -ExecutionPolicy Bypass -File .\start.ps1  또는 start.bat 더블클릭)
+                  # 쇼핑몰 http://localhost:3000 · 상담원 http://localhost:3000/admin
 ```
 
 따로 실행하려면:
