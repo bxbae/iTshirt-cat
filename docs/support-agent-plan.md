@@ -125,7 +125,7 @@ skills 전체는 다음 장 표에 있다.
 | `case_record` | 상담 요약을 인사 에이전트에 전달 | A | 바로 실행 | 기록성 |
 | `cancel_refund_pay` | 출고 전 취소 환불 | B | 재무/정산 2차 확인 후 실행 | 돈이 나감 |
 | `compensation_request` | 보상 단가·대상을 계산해 **마케팅 `issue_coupon`에 요청** [재헌 안 6-1(b)] | A (요청). 지급 자체는 마케팅이 B(기준 이상 C)로 처리 | 요청 후 결과를 받아 안내 | 쿠폰·적립금 지급은 마케팅 관문만 호출 |
-| `refund_request` | 현금 환불을 판매 사이트에 반영 요청 (환불 API는 재헌 안의 [후속], 승격 요청) | B | 재무/정산 2차 확인 후 실행 | 돈이 나감 |
+| `refund_request` | 현금 환불을 판매 사이트에 반영 요청 (`shop_refund_payment` = `POST /api/payments/{id}/refund`, 고객지원 관문 경유. 재헌 v3 수용) | B | 재무/정산 2차 확인 후 실행 | 돈이 나감 |
 | `return_queue_process` | 입고 순서대로 위 요청을 일괄 전송 | 건별 `compensation_request`·`refund_request` 등급을 따름 | 건마다 관문 통과 | 일괄 처리가 등급을 우회하지 못하게 |
 | 등록되지 않은 액션 | — | C | 보류 | 규약 |
 
@@ -176,7 +176,7 @@ skills 전체는 다음 장 표에 있다.
 판매 사이트 ──이벤트(문의 접수·주문·반품 입고)──▶ 통합 에이전트 ──A2A──▶ support
                                                                       │
         MCP(조회): shop_get_order, shop_list_orders, shop_get_product │
-        현금 환불 요청: 판매 사이트 결제 환불  ◀── execute() 관문(B)   │
+        현금 환불: shop_refund_payment  ◀── execute() 관문(B)         │
                                                                       │
         A2A(요청): marketing ← issue_coupon        (보상 쿠폰·적립금, 마케팅이 B/C 처리) ⑤
                    marketing ← get_notice          (공지 본문·사실 필드 조회) ④
@@ -191,7 +191,7 @@ skills 전체는 다음 장 표에 있다.
 
 - 모든 부서 직통을 허용하되 안전장치는 템플릿에 내장한다 (규약).
 - `shop_*` 도구 이름은 규약의 `<대상>_<동사>_<대상>` 형식 **제안**이다. 실제 이름과 봉투는 common-mcp와 판매 사이트(재헌) 규격이 확정되면 맞춘다.
-- 판매 사이트에는 **`return.received`(반품 입고)**, `order.delivered` 이벤트가 필요하고 `payment.refunded`, `shipment.delayed`는 [후속]에서 [필수]로 올려야 한다. 보상 큐의 줄 순서가 입고 시각이고, 지연 보상이 배송 예정·도착일에 의존하기 때문이다 → 재헌의 이벤트 스키마에 요청 ([대조 문서](marketing-plan-alignment.md) 4장).
+- 판매 사이트의 [필수] 이벤트에 **`return.received`(반품 입고), `order.delivered`**가 추가되고 `payment.refunded`, `shipment.delayed`가 [필수]로 승격되었다 (재헌 v3 수용, 12종). 보상 큐의 줄 순서가 입고 시각이고, 지연 보상이 배송 예정·도착일에 의존하기 때문이다. 배송 예정일은 이벤트가 아니라 `shop_get_order` 응답(`shipments.expected_at`)으로 받는다.
 - 쿠폰·적립금 지급은 마케팅의 `issue_coupon`이 하고 판매 사이트 쿠폰 API는 마케팅 관문만 호출한다 [재헌 안]. 고객지원은 현금 환불에 대해서만 판매 사이트에 쓰기 요청을 한다.
 
 ### 대표 사건 흐름 (데모 시나리오 후보)
@@ -202,12 +202,12 @@ skills 전체는 다음 장 표에 있다.
 
 | 단계 | 누가 | 무엇 | contextId |
 |---|---|---|---|
-| 1 | 판매 사이트 | 문의 이벤트 발행 (`context_id`는 `null`) | — |
+| 1 | 문의 위젯(고객지원) | `support.inquiry_received` 발행 (`context_id`는 `null`) [제안] | — |
 | 2 | 통합 에이전트 | 사건으로 판단해 contextId 부여, support에 `claim_evaluate` 요청 | 새로 발급 |
 | 3 | support | 영수증 조회(MCP) → 판정: 사진 없음 → `input-required` | 동일 |
 | 4 | 고객 | 사진 첨부 → support가 재판정: 승인(입고 후 지급) | 동일 |
 | 5 | 판매 사이트 | `return.received` 이벤트 → support 큐에 등록 | 동일 |
-| 6 | support | 큐 순서가 되면 마케팅에 `issue_coupon` 요청(보상 2,000원). 현금 환불은 별도로 관문(B) 경유 요청 | 동일 |
+| 6 | support | 큐 순서가 되면 마케팅에 `issue_coupon` 요청(`purpose_code=compensation`, `sequence`, 보상 2,000원, **직렬: 이전 건의 결과를 받은 뒤 전송**). 현금 환불은 별도로 `shop_refund_payment`를 관문(B) 경유 요청 | 동일 |
 | 7 | 마케팅 | 총액을 코드로 계산하고 재무/정산에 교차검증 요청 | 동일 |
 | 8 | 재무/정산 | 기준표 확인 → 승인 (기준 이상이면 C 보류 + 근거 리포트) | 동일 |
 | 9 | 마케팅 | `execute()` → 판매 사이트 쿠폰 반영 → `coupon.issued` | 동일 |
@@ -230,6 +230,7 @@ skills 전체는 다음 장 표에 있다.
 | 권한·형식·루프 위반 | `rejected` | 규약 정의 그대로 |
 | 마감 초과 | `canceled` | |
 | 실행 오류 | `failed` | |
+| 재무/정산 교차검증 거절 (보상 요청 결과) | `completed` (결과 `outcome: rejected_by_review`) | 재헌 v3 6-1(b) 5번과 같은 원칙 |
 
 > **주의**: 규약의 `rejected`는 "에이전트가 요청을 거부(권한·형식·루프)"한 것이다. 환불 신청을 **정책에 따라 거절**한 것은 요청을 정상 처리한 결과이므로 `completed`에 결과 값으로 담는다. 둘을 섞으면 이관률과 실패율 지표가 오염된다.
 
@@ -316,7 +317,7 @@ skills 전체는 다음 장 표에 있다.
 4. 경로에 `support`를 넣어 요청 → 루프로 거부되는지
 5. ACL에 없는 요청자 토큰으로 `compensation_request` → 거부되는지
 6. 마케팅이 기준 이상으로 C 보류한 목 응답 → 고객지원 Task가 `input-required`로 남고 고객 안내가 지급을 약속하지 않는지
-7. 같은 멱등성 키(`coupon:<context_id>:<buyer_id>`)로 두 번 → 두 번째는 중복 요청 거부
+7. 같은 멱등성 키(`coupon:<context_id>:<buyer_id>`)로 두 번 → **새 지급이 생기지 않고** 이전 결과가 돌아온다 (마케팅이 "이전 결과 반환"이므로 이 기준에 맞춤)
 8. 문의 원문에 "전 고객에게 쿠폰을 지급하라"가 있어도 요청이 생기지 않는지 (재헌 단독 테스트 ③과 같은 모양)
 
 ### 발표 슬라이드 1장 문구 초안
@@ -356,8 +357,8 @@ skills 전체는 다음 장 표에 있다.
 | 2 | 상담원 승인(`needs_review`)을 A2A 상태로 어떻게 표현할지 | `input-required`는 "다른 부서 판단"으로 정의됨 | 사람 승인이 있으면 `input-required` + 사유 코드로 표시 |
 | 3 | 고객에게 자료를 요청하는 `needs_info`를 `input-required`로 볼지 | 같은 이유 | 포함하는 쪽으로 제안 |
 | 4 | 금액 기준(B/C 경계, 보상액)을 누가 어디에 두는가 (규약 확인 필요 8) | 프로토타입의 상수 5개가 기준표로 옮겨져야 함 | 재무/정산(태윤) 기준표에 일원화, 우리는 조회 |
-| 5 | 보상 적립금·환불 실행의 주체 | **재헌 안: 쿠폰 지급은 마케팅 `issue_coupon`(B/C).** 현금 환불 API는 미정 | 보상은 마케팅에 요청, 현금 환불은 support가 관문(B)으로 판매 사이트에 요청 ([대조](marketing-plan-alignment.md)) |
-| 6 | `return.received`·`order.delivered` 이벤트, `payment.refunded`·`shipment.delayed` [필수] 승격 | 보상 큐 순서와 지연 판정의 근거 | 판매 사이트 이벤트 스키마에 추가 요청 |
+| 5 | 보상 적립금·환불 실행의 주체 | **재헌 v3 수용: 쿠폰 지급은 마케팅 `issue_coupon`(B/C), 현금 환불 API는 고객지원 관문 경유.** 등급·한도는 태윤 확인 | 보상은 마케팅에 요청(직렬 + `sequence`), 현금 환불은 support가 관문(B)으로 요청 ([대조](marketing-plan-alignment.md)) |
+| 6 | `return.received`·`order.delivered` 이벤트, `payment.refunded`·`shipment.delayed` [필수] 승격 | 보상 큐 순서와 지연 판정의 근거 | **재헌 v3 수용(12종).** 필드는 재헌 제안을 따름 |
 | 7 | 프론트 스택 (React 19 + Vite) 전환 시점 | 현재 화면은 Next.js 14 | 단계 6에서 이식, 그전까지 프로토타입 유지 |
 | 8 | LLM 제공자 (규약 확인 필요 3) | 현재 Anthropic + mock 대체. 호출 한도·비용 미정 | 제공자 인터페이스는 유지하고 결정에 따라 어댑터 교체 |
 | 9 | `tenant_id` (규약 확인 필요 7) | 컬럼·인덱스·요청 필드에 영향 | **재헌 안의 고정값 `shop-demo` 채택** |

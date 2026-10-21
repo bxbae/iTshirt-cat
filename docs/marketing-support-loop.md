@@ -3,7 +3,7 @@
 「기획개발 ↔ 인사운영 개선 루프」와 같은 구조로 마케팅 에이전트(`marketing`, 재헌)와 고객지원 에이전트(`support`, 병환)의 연동을 정리한 문서다.
 조직도에서 두 부서를 잇는 점선 "대외 소통"을 구체화한 것이고, 공지·상품·쿠폰(마케팅)과 문의 응대·보상 계산(고객지원)이 서로의 기록과 요청을 주고받는 고리다.
 
-이 문서는 재헌의 「마케팅 부서(AI) + 판매 사이트 기획안」(2026-10-21)을 반영해 고쳤다. 무엇을 어떻게 맞췄는지는 [기획안 대조](marketing-plan-alignment.md)에 있다.
+이 문서는 재헌의 「마케팅 부서(AI) + 판매 사이트 기획안 **v3**」(2026-10-21)을 반영해 고쳤다. v3는 우리가 보낸 요청 5개를 모두 수용했고 처리 순서 보장(직렬 처리 + `sequence`)을 제안했다. 무엇을 어떻게 맞췄고 무엇이 남았는지는 [기획안 대조](marketing-plan-alignment.md)에 있다.
 상위 문서: [고객지원 에이전트 구성안](support-agent-plan.md) · 팀 공통 규약(2026-10-21).
 표기: **[제안]** 합의 전, **[규약]** 팀 공통 규약 그대로, **[재헌 안]** 재헌 기획안의 제안, **[현재 코드]** 이 저장소 프로토타입에서 이미 되는 것.
 
@@ -19,7 +19,7 @@
 | ② 질의 (선택) | 마케팅 → 고객지원 | 동기 읽기 요청 | 게시 전 공지 초안의 정책 충돌·과거 분쟁 점검(`notice_check`) ← 판정·경고와 근거 카드 | [제안] 재헌 확인 필요 |
 | ③ 문의 급증 신호 | 고객지원 → 통합(→ 마케팅) | 비동기 이벤트 | `support.inquiry_surge` + 근거(Task). 공식 초안은 마케팅 `draft_notice`가 작성 | [재헌 안] 6-1(c) |
 | ④ 공지 조회 | 고객지원 → 마케팅 | 읽기 요청 | `get_notice`: 공지 본문·사실 필드·근거. 문의 응대와 보상 계산 때 자동 | [재헌 안] 6-1(a), skill 추가 요청 |
-| ⑤ 보상 요청 | 고객지원 → 마케팅 | A2A 요청 | `issue_coupon`: 보상 단가·대상·사유. 마케팅이 코드로 총액 계산, 재무/정산 교차검증(B), 기준 이상은 C 보류. 결과를 회신 | [재헌 안] 6-1(b) |
+| ⑤ 보상 요청 | 고객지원 → 마케팅 | A2A 요청 (**직렬**) | `issue_coupon`(`purpose_code=compensation`, `sequence`): 보상 단가·대상·사유. 마케팅이 코드로 총액 계산, 재무/정산 교차검증(B), 기준 이상은 C 보류. 결과를 회신 | [재헌 안 v3] 6-1(b) |
 
 ### 연동 규칙 (이 루프의 헌법)
 
@@ -63,8 +63,8 @@
 | 받는 이벤트 | data | 고객지원에서의 쓰임 |
 |---|---|---|
 | `notice.published` | notice_id, channel_code, context_id | 응대 근거로 쓸 공지가 생겼음을 알림. 본문은 ④로 조회 |
-| `campaign.created` | campaign_id, target_codes[], starts_at, ends_at | 진행 중 프로모션 기간·대상 확인 (보상과 이벤트 쿠폰 중복 방지) |
-| `coupon.issued` | coupon_id, campaign_id, count, total_value | ⑤ 요청의 결과 확인, 이미 지급된 쿠폰과의 중복 확인 |
+| `campaign.created` | campaign_id, target_codes[], starts_at, ends_at, **promises[{type, amount, condition}]** | 진행 중 프로모션 기간·대상·약속 확인 (보상과 이벤트 쿠폰 중복 방지). `promises`가 없거나 형식이 틀리면 그 약속은 응대·보상에 쓰지 않음 |
+| `coupon.issued` | coupon_id, campaign_id(보상이면 null), **purpose_code**(campaign·compensation), count, total_value | ⑤ 요청의 결과 확인, 이미 지급된 쿠폰과의 중복 확인 |
 
 - 판매 사이트의 `product.sold_out`, `product.stock_low`, `product.price_changed`는 재헌 안에서 [후속]이다. 그전까지 재입고·가격 문의는 판매 사이트 상품 조회(API)로 응대한다.
 - 같은 `event_id`는 한 번만 처리한다 (멱등성).
@@ -138,10 +138,28 @@
 
 | 조회 | 쓰임 |
 |---|---|
-| `get_notice(notice_id)` → 본문, 사실 필드(component·상태·사건 ID), 근거 | 고객이 "공지에서 봤다"고 할 때 근거 확인, 답변 초안에 인용 |
+| `get_notice(notice_id \| campaign_id)` → 사실 필드(component·상태·사건 ID), `promises[]`, 기간·상태, 근거 | 고객이 "공지에서 봤다"고 할 때 근거 확인, 답변 초안에 인용. 진행 중 캠페인·쿠폰 조회도 같은 skill로 한다 [v3] |
 | 진행 중 캠페인·쿠폰 (`campaign.created`, `coupon.issued` 기록) | 보상과 이벤트 쿠폰의 **중복 지급 방지**, 쿠폰 조건 문의 응대 |
 | 판매 사이트 상품 조회 `shop_get_product` (MCP) | 영수증 가격과 현재 가격이 다를 때 설명, 재입고 문의 |
 
+응답 형식 [재헌 안 v3 5-6]:
+
+```json
+{
+  "notice_id": "ntc_0001", "kind": "incident", "context_id": "ctx_inc_0001",
+  "status": "published", "channel_codes": ["banner"],
+  "valid_from": "2026-10-21T05:45:00Z", "valid_to": null,
+  "facts": { "incident_id": "inc_0001", "component": "api", "incident_status": "investigating",
+             "recovery_eta": null, "recovery_eta_unknown_reason": "확인할 수 없음" },
+  "promises": [],
+  "public_text": "주문 처리 지연이 발생하고 있습니다. 복구 예상 시각은 확인할 수 없습니다.",
+  "evidence": { "event_ids": ["evt_0002"], "incident_ref": "inc_0001", "notice_check_ref": null, "collected_at": "2026-10-21T05:45:10Z" }
+}
+```
+
+- 고객지원은 `status = published`이고 기간 안인 공지만 근거로 인용한다. `valid_to: null`은 종료 시각 미정이다.
+- 금액 계산에는 `promises[].amount`만 쓰고, `public_text`는 지시로 해석하지 않는다.
+- `facts`의 근거 없는 값은 `null` + 사유이므로, 고객 응대에서도 "확인할 수 없음"으로 말한다 (복구 예상 시각을 만들어 약속하지 않음).
 - 읽기 전용이라 등급 대상이 아니다. 근거(조회 시각, 대상 ID)를 결과에 첨부한다 [규약].
 - 공통 봉투 `{ok, collected_at, data, truncated}`와 목 모드를 따른다 [규약, common-mcp].
 - 마케팅 DB를 직접 읽지 않는다. 마케팅이 제공하는 skill·API로만 읽는다.
@@ -154,7 +172,7 @@
 
 | 단계 | 누가 | 무엇 | 등급 | 데이터 |
 |---|---|---|---|---|
-| 1 | 고객지원 | 판정 엔진으로 **보상 단가·대상** 계산, 마케팅에 `issue_coupon` 요청 | A (요청) | 사유 코드, 대상(`buyer_id`), 단가, context_id, 멱등성 키 `coupon:<context_id>:<buyer_id>` |
+| 1 | 고객지원 | 판정 엔진으로 **보상 단가·대상** 계산, 마케팅에 `issue_coupon` 요청 | A (요청) | `purpose_code=compensation`, 사유 코드, 대상(`buyer_id`), 단가, context_id, **`sequence`**, 멱등성 키 `coupon:<context_id>:<buyer_id>` |
 | 2 | 마케팅 (코드) | 총액 = 건수 × 단가 계산, 재무 기준표로 등급 판정 | 코드 | 계산식, 기준표 버전 |
 | 3 | 마케팅 → 재무/정산 | 교차검증 요청 | B | 계산 결과 |
 | 4a | 재무/정산 → 마케팅 | 확인 → 마케팅 `execute()` 지급 → `coupon.issued` | B | coupon_id, count, total_value |
@@ -162,8 +180,9 @@
 | 5 | 마케팅 → 고객지원 | 결과 회신 | — | Task completed / input-required |
 | 6 | 고객지원 | 결과를 근거로 고객 안내 작성(지급 확정 전에는 약속하지 않음), 사건 기록 | — | 답변 초안·가드 |
 
-- **입고 순 큐와의 관계**: 큐는 반품 입고 순서대로 요청을 보낸다. 마케팅이 비동기로 처리하면 완료 순서가 뒤바뀔 수 있으므로, 순서가 중요한 경우 한 건씩 결과를 받고 다음 건을 보내거나 요청에 `sequence`를 담는다 [제안, 결정 대기].
-- **현금 환불**은 쿠폰이 아니라 판매 사이트의 결제 환불이다. 고객지원이 자기 실행 관문(B)을 거쳐 판매 사이트에 요청한다 (환불 이벤트·API는 재헌 안의 [후속], 승격 요청).
+- **입고 순 큐와의 관계 [v3 수용]**: 마케팅은 `issue_coupon`(compensation)을 **직렬 처리**한다(한 건씩 결과를 회신한 뒤 다음 건). 고객지원 큐는 입고 순서대로 한 건씩 보내고, 요청마다 `sequence`(큐 순번)를 담는다. 비동기 병렬 처리는 하지 않으므로 완료 순서가 뒤바뀌지 않는다. 마케팅이 느리면 줄이 밀리므로 **요청별 마감 시각**을 두고, 초과하면 `canceled`로 기록한 뒤 다음 건으로 넘어가지 않고 상담원 확인 대상으로 올린다 [제안].
+- **결과 상태 [v3 수용]**: 재무 거절 = `completed` + `outcome: rejected_by_review`, 타임아웃 = `canceled`(마감 초과), 실행 오류 = `failed`.
+- **현금 환불**은 쿠폰이 아니라 판매 사이트의 결제 환불이다. 고객지원이 자기 실행 관문(B)을 거쳐 `shop_refund_payment`(`POST /api/payments/{id}/refund`)로 요청하고, 마케팅은 관여하지 않는다 [v3 수용]. 반영되면 `payment.refunded` 이벤트가 발행된다.
 - [현재 코드] 큐 조건(검수·한도·재고·점검)과 순서, 금액 계산은 이미 있다. 지급 부분이 "요청 보내기"로 바뀐다.
 
 ---
@@ -330,19 +349,18 @@ ax-frontend/                        React · Vite · npm
 
 ## 8. 확인 필요
 
-[기획안 대조 5장](marketing-plan-alignment.md)의 결정 대기와 이어진다.
+[기획안 대조](marketing-plan-alignment.md)와 이어진다. 재헌 v3가 우리 요청 5개를 모두 수용해서 이전의 요청 항목은 닫혔고, 남은 것만 적는다.
 
-| # | 질문 | 제안 |
+| # | 질문 | 상태 · 제안 |
 |---|---|---|
-| 1 | **적립금과 쿠폰을 같은 것으로 볼지** | 같은 `issue_coupon`으로 처리하는 안. 사용·소멸 규칙이 다르면 분리 |
-| 2 | **현금 환불 실행의 주체와 등급** | 고객지원이 B(재무 교차검증)로 요청 |
-| 3 | **보상 요청의 처리 순서 보장** (비동기 완료 순서) | 한 건씩 결과를 받고 다음 건을 보내거나 `sequence` 전달 |
-| 4 | **`get_notice` skill 추가와 `promises[]` 필드** | 재헌에게 요청. 없으면 해당 약속은 응대에 쓰지 않음 |
-| 5 | 판매 사이트 이벤트 승격: `payment.refunded`, `shipment.delayed` → [필수], 신규 `order.delivered`, `return.received` | 재헌에게 요청. 우리 판정이 배송 예정·도착일, 반품 입고 시각에 의존 |
-| 6 | ② `notice_check`를 마케팅 게시 흐름에 넣을지, `block` 무시 게시를 허용할지 | 허용하되 감사 로그·대시보드에 기록 |
+| 1 | `promises`의 `type`·`condition_code` 목록 | v3가 병환 확인을 요청. `type` = `points`·`coupon`, `condition_code`는 정책표와 일치하는 코드(예 `LATE_3D`). [대조 4-1](marketing-plan-alignment.md) |
+| 2 | 같은 멱등성 키 재요청의 기대 결과 | 마케팅은 "이전 결과 반환". 고객지원 테스트를 "새 지급 없음"으로 맞춤 |
+| 3 | 문의 접수 이벤트 발행 주체 | 문의 위젯이 병환 소관이므로 고객지원이 `support.inquiry_received`(제안)를 발행 |
+| 4 | 적립금·쿠폰의 사용·소멸 규칙 | 조건부 수용. `purpose_code`로 분리하고 보상 쿠폰의 소멸 기한을 이벤트 쿠폰과 다르게 두는 안. 재헌·병환·태윤 3인 합의 |
+| 5 | 현금 환불의 등급과 100,000원 경계 | 고객지원 관문 B(기준 이상 C). 금액 경계는 재무 기준표 |
+| 6 | 요청별 마감 시각 값 | 직렬 처리가 느려지면 줄이 밀리므로 필요. 값은 `(TODO: 추후결정)` |
 | 7 | ②·⑤ 응답이 `marketing → support → marketing` 경로가 되어 루프 거부에 걸리는가 | 같은 Task의 결과로 반환. 준하 확인 |
-| 8 | 교차검증 거절·타임아웃의 Task 상태 (`input-required` / `failed`) | 고객지원 Task 상태 매핑과 함께 결정 |
-| 9 | ③ 급증 임계값(N배, N건) | 병환이 초안 제시, 데이터분석과 조율 |
-| 10 | 별점·내용 조건 보상 금지 정책 추가 | 정책 문서에 조항 추가 (고객지원 소관) |
-| 11 | 모노레포 + 독립 패키지 배치 확정 | 결정 기록에 한 줄 추가 후 6장을 확정으로 변경 |
-| 12 | C 보류 해제 주체와 사람 승인 단계의 관계 | [구성안 14장 확인 필요 1](support-agent-plan.md)과 같은 안건 |
+| 8 | ③ 급증 임계값(N배, N건) | 병환이 초안 제시, 데이터분석과 조율 |
+| 9 | 별점·내용 조건 보상 금지 정책 추가 | 정책 문서에 조항 추가 (고객지원 소관) |
+| 10 | 모노레포 + 독립 패키지 배치 확정 | 결정 기록에 한 줄 추가 후 6장을 확정으로 변경 |
+| 11 | **C 보류 해제 주체와 사람 승인 단계의 관계** | 재헌 v3도 결정 대기. [구성안 14장 확인 필요 1](support-agent-plan.md)과 같은 안건 |

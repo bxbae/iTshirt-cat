@@ -18,8 +18,8 @@
 <rect x="400" y="262" width="264" height="112" rx="20" fill="#ffffff" stroke="#5a54d6" stroke-width="4"/>
 <circle cx="408" cy="270" r="21" fill="#5a54d6"/>
 <text x="408" y="279" font-size="26" font-weight="700" fill="#fff" text-anchor="middle">1</text>
-<text x="532.0" y="304" font-size="21" font-weight="800" fill="#1f2547" text-anchor="middle">문의 이벤트 발행</text>
-<text x="532.0" y="334" font-size="18" font-weight="400" fill="#6b7194" text-anchor="middle">context_id는 null</text>
+<text x="532.0" y="304" font-size="21" font-weight="800" fill="#1f2547" text-anchor="middle">문의 위젯에서 접수</text>
+<text x="532.0" y="334" font-size="18" font-weight="400" fill="#6b7194" text-anchor="middle">support.inquiry_received</text>
 <rect x="722" y="396" width="264" height="112" rx="20" fill="#ffffff" stroke="#5a54d6" stroke-width="4"/>
 <circle cx="730" cy="404" r="21" fill="#5a54d6"/>
 <text x="730" y="413" font-size="26" font-weight="700" fill="#fff" text-anchor="middle">2</text>
@@ -45,7 +45,7 @@
 <circle cx="1052" cy="940" r="21" fill="#5a54d6"/>
 <text x="1052" y="949" font-size="26" font-weight="700" fill="#fff" text-anchor="middle">6</text>
 <text x="1176.0" y="974" font-size="21" font-weight="800" fill="#1f2547" text-anchor="middle">issue_coupon 요청</text>
-<text x="1176.0" y="1004" font-size="18" font-weight="400" fill="#6b7194" text-anchor="middle">큐 순서 · 보상 2,000원</text>
+<text x="1176.0" y="1004" font-size="18" font-weight="400" fill="#6b7194" text-anchor="middle">직렬 · sequence · 2,000원</text>
 <rect x="1366" y="1066" width="264" height="112" rx="20" fill="#ffffff" stroke="#5a54d6" stroke-width="4"/>
 <circle cx="1374" cy="1074" r="21" fill="#5a54d6"/>
 <text x="1374" y="1083" font-size="26" font-weight="700" fill="#fff" text-anchor="middle">7</text>
