@@ -1,5 +1,7 @@
 # 고객지원 에이전트(support) 구성안
 
+> 연동 문서: [마케팅 ↔ 고객지원 대외 소통 루프](marketing-support-loop.md)
+
 멀티 에이전트 AX 플랫폼 「팀 공통 규약」(2026-10-21)에 맞춰 고객지원 부서 에이전트와 오케스트레이션 대시보드를 구성하는 계획이다.
 담당: 병환 (부서 에이전트 `support` + 공통 모듈 「오케스트레이션 대시보드·문의 위젯」).
 
@@ -34,7 +36,7 @@
 
 | # | 항목 | 규약 | 고객지원에서 할 일 | 현재 상태 |
 |---|---|---|---|---|
-| 1 | 레포 구성 | 레포 1개, README 5항목, CLAUDE.md, .env.example **[기존 규칙]** | `support-agent` 레포로 분리. README 5항목은 6장 | [현재 코드] `.env.example` 있음. 쇼핑몰·콘솔이 한 레포에 섞여 있음 → 분리 필요 |
+| 1 | 레포 구성 | 레포 1개, README 5항목, CLAUDE.md, .env.example **[기존 규칙]** | 모노레포 `ax-backend/agents/support/`에 **독립 패키지**로 둔다(자체 pyproject·README·테스트·Dockerfile, 다른 부서 import 금지). 배치는 [마케팅↔고객지원 루프 6장](marketing-support-loop.md) **[제안]**. README 5항목은 6장 | [현재 코드] `.env.example` 있음. 쇼핑몰·콘솔이 한 레포에 섞여 있음 → 분리 필요 |
 | 2 | 스택 | Python 3.12 + FastAPI + a2a-sdk, 에이전트 1개 = 컨테이너 1개 **[제안]** | a2a-sdk로 Agent Card·Task 엔드포인트 추가 | [현재 코드] Python 3.12 + FastAPI + 컨테이너. a2a-sdk 없음 |
 | 3 | 화면 틀 | common-frontend를 버전 태그로 설치, AppShell 메뉴에 부서 항목, 색은 토큰만 **[기존 규칙]** | 대시보드·콘솔을 common-frontend 메뉴 "고객지원" 아래로 이식 | [갭] 현재는 Next.js 14 + 자체 Tailwind 테마. React 19 + Vite로 다시 옮겨야 함 |
 | 4 | 인증 | 사람은 JWT 하나, 에이전트는 에이전트별 토큰, 요청자는 토큰에서 추출 **[제안]** | 템플릿의 인증 모듈 사용 | [갭] 현재는 `X-User-Id` 헤더와 열린 `/api/admin` (데모용) |
