@@ -7,6 +7,16 @@
 
 ## 실행
 
+가장 빠른 방법 (Python 3.11+ 와 Node.js 20+ 필요, 처음엔 패키지 설치로 1~2분):
+
+```bash
+git clone https://github.com/bxbae/iTshirt-cat && cd iTshirt-cat
+git checkout claude/inspiring-newton-m40h9p
+./start.sh        # 쇼핑몰 http://localhost:3000 · 상담원 http://localhost:3000/admin
+```
+
+따로 실행하려면:
+
 ```bash
 # 1) 백엔드 (API 키 없이 mock 모드로 바로 실행, 첫 실행 때 데모 데이터 생성)
 cd backend
