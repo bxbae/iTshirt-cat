@@ -1,0 +1,211 @@
+{
+  "name": "support",
+  "owner": "병환",
+  "description": "문의 응대, 클레임 판정, 개별 보상 요청. 보상 지급은 marketing issue_coupon, 영향 원천 숫자는 data impact_analysis를 따른다.",
+  "url": "http://support:8102/a2a",
+  "version": "0.1.0",
+  "capabilities": {
+    "streaming": true,
+    "push_notifications": false
+  },
+  "skills": [
+    {
+      "id": "inquiry_draft",
+      "description": "고객 문의 원문(untrusted)과 주문 ID를 받아 분류하고, 정책 KB와 get_notice 결과로 답변 초안 3종과 가드 결과를 돌려준다. 상태를 바꾸지 않는다. LLM 실패 시 고정 템플릿(fallback).",
+      "input_schema": "contracts/schemas/support/inquiry_draft_input.json",
+      "output_schema": "contracts/schemas/support/inquiry_draft_output.json",
+      "grade": "read",
+      "allowed_requesters": [
+        "orchestrator"
+      ],
+      "verifier": null,
+      "priority": "required"
+    },
+    {
+      "id": "reply_send",
+      "description": "가드를 통과한 답변을 고객에게 발송한다. 금전 약속이 없는 답변만 허용한다.",
+      "input_schema": "contracts/schemas/support/reply_send_input.json",
+      "output_schema": "contracts/schemas/support/reply_send_output.json",
+      "grade": "A",
+      "allowed_requesters": [
+        "orchestrator"
+      ],
+      "verifier": null,
+      "priority": "required"
+    },
+    {
+      "id": "compensation_request",
+      "description": "보상 대상·단가를 판정해 marketing issue_coupon(purpose_code=compensation)에 직렬(sequence)로 요청한다. 영향 대상은 data impact_analysis 결과와 대조한다. 지급은 하지 않는다.",
+      "input_schema": "contracts/schemas/support/compensation_request_input.json",
+      "output_schema": "contracts/schemas/support/compensation_request_output.json",
+      "grade": "A",
+      "allowed_requesters": [
+        "orchestrator"
+      ],
+      "verifier": null,
+      "priority": "required"
+    },
+    {
+      "id": "claim_evaluate",
+      "description": "주문과 신청 내용을 영수증·정책으로 대조해 outcome(auto_approved/approved_pending_return/needs_info/needs_review/auto_rejected)과 금액을 계산한다. 상태를 바꾸지 않는다.",
+      "input_schema": "contracts/schemas/support/claim_evaluate_input.json",
+      "output_schema": "contracts/schemas/support/claim_evaluate_output.json",
+      "grade": "read",
+      "allowed_requesters": [
+        "orchestrator",
+        "finance",
+        "marketing"
+      ],
+      "verifier": null,
+      "priority": "recommended"
+    },
+    {
+      "id": "queue_status",
+      "description": "반품 입고 순 보상 큐의 순서와 막힌 사유를 조회한다. 상태를 바꾸지 않는다.",
+      "input_schema": "contracts/schemas/support/queue_status_input.json",
+      "output_schema": "contracts/schemas/support/queue_status_output.json",
+      "grade": "read",
+      "allowed_requesters": [
+        "orchestrator",
+        "finance",
+        "data"
+      ],
+      "verifier": null,
+      "priority": "recommended"
+    },
+    {
+      "id": "claim_register",
+      "description": "클레임 신청 접수, 고객 자료 요청, 철회를 기록한다.",
+      "input_schema": "contracts/schemas/support/claim_register_input.json",
+      "output_schema": "contracts/schemas/support/claim_register_output.json",
+      "grade": "A",
+      "allowed_requesters": [
+        "orchestrator"
+      ],
+      "verifier": null,
+      "priority": "recommended"
+    },
+    {
+      "id": "refund_request",
+      "description": "현금 환불을 shop-api 환불 API에 반영하도록 요청한다(고객지원 관문 토큰만). 금액은 안전 레이어가 재계산한다.",
+      "input_schema": "contracts/schemas/support/refund_request_input.json",
+      "output_schema": "contracts/schemas/support/refund_request_output.json",
+      "grade": "B",
+      "allowed_requesters": [
+        "orchestrator"
+      ],
+      "verifier": "finance",
+      "priority": "recommended"
+    },
+    {
+      "id": "return_queue_process",
+      "description": "반품 입고 순으로 compensation_request·refund_request를 건별로 전송한다. 건별 등급을 따른다.",
+      "input_schema": "contracts/schemas/support/return_queue_process_input.json",
+      "output_schema": "contracts/schemas/support/return_queue_process_output.json",
+      "grade": "A",
+      "allowed_requesters": [
+        "orchestrator"
+      ],
+      "verifier": null,
+      "priority": "recommended"
+    },
+    {
+      "id": "review_moderate",
+      "description": "후기를 보류·숨김·공개한다.",
+      "input_schema": "contracts/schemas/support/review_moderate_input.json",
+      "output_schema": "contracts/schemas/support/review_moderate_output.json",
+      "grade": "A",
+      "allowed_requesters": [
+        "orchestrator"
+      ],
+      "verifier": null,
+      "priority": "optional"
+    },
+    {
+      "id": "seller_notice",
+      "description": "입점 심사 결과(승인·정산 보류·보류)를 판매자에게 안내한다.",
+      "input_schema": "contracts/schemas/support/seller_notice_input.json",
+      "output_schema": "contracts/schemas/support/seller_notice_output.json",
+      "grade": "A",
+      "allowed_requesters": [
+        "orchestrator"
+      ],
+      "verifier": null,
+      "priority": "optional"
+    },
+    {
+      "id": "ticket_create",
+      "description": "불량 패턴을 planning create_ticket에 요청한다.",
+      "input_schema": "contracts/schemas/support/ticket_create_input.json",
+      "output_schema": "contracts/schemas/support/ticket_create_output.json",
+      "grade": "A",
+      "allowed_requesters": [
+        "orchestrator"
+      ],
+      "verifier": null,
+      "priority": "optional"
+    },
+    {
+      "id": "notice_check",
+      "description": "마케팅 공지 초안이 정책과 충돌하거나 분쟁 이력이 있는지 점검해 같은 Task 결과로 돌려준다.",
+      "input_schema": "contracts/schemas/support/notice_check_input.json",
+      "output_schema": "contracts/schemas/support/notice_check_output.json",
+      "grade": "read",
+      "allowed_requesters": [
+        "marketing"
+      ],
+      "verifier": null,
+      "priority": "optional"
+    }
+  ],
+  "events": {
+    "publish": [
+      "support.inquiry_received",
+      "support.inquiry_surge"
+    ],
+    "subscribe": [
+      "incident.opened",
+      "incident.resolved",
+      "notice.published",
+      "coupon.issued",
+      "campaign.created",
+      "order.delivered",
+      "shipment.delayed",
+      "payment.refunded",
+      "return.received",
+      "payment.failed"
+    ]
+  },
+  "outbound_calls": [
+    {
+      "to": "marketing",
+      "skill": "issue_coupon",
+      "via": "execute",
+      "note": "purpose_code=compensation, sequence, 직렬"
+    },
+    {
+      "to": "marketing",
+      "skill": "get_notice",
+      "via": "a2a",
+      "note": "유일한 공지 조회 경로"
+    },
+    {
+      "to": "data",
+      "skill": "impact_analysis",
+      "via": "a2a",
+      "note": "read"
+    },
+    {
+      "to": "hr",
+      "skill": "record_case",
+      "via": "a2a",
+      "note": "decision_reason, alternatives_considered"
+    },
+    {
+      "to": "planning",
+      "skill": "create_ticket",
+      "via": "a2a",
+      "note": "선택"
+    }
+  ]
+}

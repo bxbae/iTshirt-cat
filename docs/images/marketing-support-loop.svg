@@ -42,7 +42,7 @@
 <circle cx="620" cy="1031" r="21" fill="#2e9e6b"/>
 <text x="620" y="1040" font-size="26" font-weight="700" fill="#fff" text-anchor="middle">⑤</text>
 <text x="660" y="1039" font-size="30" font-weight="800" fill="#1f2547" text-anchor="start">보상 요청 — issue_coupon (purpose=compensation)</text>
-<text x="1000" y="1115" font-size="23" font-weight="400" fill="#6b7194" text-anchor="middle">직렬 처리 + sequence · 마케팅이 총액 계산 → 재무/정산 교차검증(B), 기준 이상 C 보류</text>
+<text x="1000" y="1115" font-size="23" font-weight="400" fill="#6b7194" text-anchor="middle">직렬 + sequence · 마케팅 execute() → 안전 레이어 → 재무 교차검증(B), 기준 이상 C 보류</text>
 <line x1="530" y1="1160" x2="1470" y2="1160" stroke="#5a54d6" stroke-width="5" marker-end="url(#a-purple)"/>
 <text x="1000" y="1200" font-size="23" font-weight="400" fill="#6b7194" text-anchor="middle">결과 회신 · completed / input-required (같은 Task의 결과)</text>
 <rect x="75" y="1255" width="1850" height="140" rx="34" fill="#fff7e6" stroke="#f2b84b" stroke-width="4"/>

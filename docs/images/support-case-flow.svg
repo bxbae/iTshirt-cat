@@ -2,7 +2,7 @@
 <defs><marker id="a-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#5a54d6"/></marker><marker id="a-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#2e9e6b"/></marker><marker id="a-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8a90b0"/></marker></defs>
 <rect width="2000" height="1680" fill="#f6f7fc"/>
 <text x="75" y="70" font-size="44" font-weight="800" fill="#1f2547" text-anchor="start">대표 사건 흐름: 불량 신청 → 반품 입고 → 보상 지급</text>
-<text x="75" y="112" font-size="24" font-weight="400" fill="#6b7194" text-anchor="start">사건 하나 = contextId 하나 · 보상은 마케팅 issue_coupon, 재무/정산 교차검증을 거쳐 지급 (현금 환불은 별도 관문)</text>
+<text x="75" y="112" font-size="24" font-weight="400" fill="#6b7194" text-anchor="start">사건 하나 = contextId 하나 · 보상은 마케팅 issue_coupon, 안전 레이어 등급 판정과 재무 교차검증을 거쳐 지급 (현금 환불은 별도 관문)</text>
 <rect x="60" y="160" width="300" height="1470" rx="30" fill="#ffffff" stroke="#c9cde0" stroke-width="3"/>
 <text x="210.0" y="214" font-size="27" font-weight="800" fill="#1f2547" text-anchor="middle">고객</text>
 <rect x="382" y="160" width="300" height="1470" rx="30" fill="#ffffff" stroke="#c9cde0" stroke-width="3"/>
@@ -14,7 +14,7 @@
 <rect x="1348" y="160" width="300" height="1470" rx="30" fill="#ffffff" stroke="#c9cde0" stroke-width="3"/>
 <text x="1498.0" y="214" font-size="27" font-weight="800" fill="#1f2547" text-anchor="middle">마케팅</text>
 <rect x="1670" y="160" width="300" height="1470" rx="30" fill="#ffffff" stroke="#c9cde0" stroke-width="3"/>
-<text x="1820.0" y="214" font-size="27" font-weight="800" fill="#1f2547" text-anchor="middle">재무/정산</text>
+<text x="1820.0" y="214" font-size="27" font-weight="800" fill="#1f2547" text-anchor="middle">안전 레이어 · 재무</text>
 <rect x="400" y="262" width="264" height="112" rx="20" fill="#ffffff" stroke="#5a54d6" stroke-width="4"/>
 <circle cx="408" cy="270" r="21" fill="#5a54d6"/>
 <text x="408" y="279" font-size="26" font-weight="700" fill="#fff" text-anchor="middle">1</text>
@@ -49,13 +49,13 @@
 <rect x="1366" y="1066" width="264" height="112" rx="20" fill="#ffffff" stroke="#5a54d6" stroke-width="4"/>
 <circle cx="1374" cy="1074" r="21" fill="#5a54d6"/>
 <text x="1374" y="1083" font-size="26" font-weight="700" fill="#fff" text-anchor="middle">7</text>
-<text x="1498.0" y="1108" font-size="21" font-weight="800" fill="#1f2547" text-anchor="middle">총액 계산 · 교차검증</text>
+<text x="1498.0" y="1108" font-size="21" font-weight="800" fill="#1f2547" text-anchor="middle">총액 계산 · execute()</text>
 <text x="1498.0" y="1138" font-size="18" font-weight="400" fill="#6b7194" text-anchor="middle">건수 × 단가 (코드)</text>
 <rect x="1688" y="1200" width="264" height="112" rx="20" fill="#ffffff" stroke="#2e9e6b" stroke-width="4"/>
 <circle cx="1696" cy="1208" r="21" fill="#2e9e6b"/>
 <text x="1696" y="1217" font-size="26" font-weight="700" fill="#fff" text-anchor="middle">8</text>
-<text x="1820.0" y="1242" font-size="21" font-weight="800" fill="#1f2547" text-anchor="middle">기준표 확인 → 승인</text>
-<text x="1820.0" y="1272" font-size="18" font-weight="400" fill="#6b7194" text-anchor="middle">기준 이상이면 C 보류</text>
+<text x="1820.0" y="1242" font-size="21" font-weight="800" fill="#1f2547" text-anchor="middle">등급 판정 · 교차검증</text>
+<text x="1820.0" y="1272" font-size="18" font-weight="400" fill="#6b7194" text-anchor="middle">verify_amount · 기준 이상 C 보류</text>
 <rect x="1366" y="1334" width="264" height="112" rx="20" fill="#ffffff" stroke="#2e9e6b" stroke-width="4"/>
 <circle cx="1374" cy="1342" r="21" fill="#2e9e6b"/>
 <text x="1374" y="1351" font-size="26" font-weight="700" fill="#fff" text-anchor="middle">9</text>

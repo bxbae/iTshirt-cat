@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 1330" width="2000" height="1330" font-family="'Noto Sans CJK KR','Noto Sans KR','Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif">
+<defs><marker id="a-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#5a54d6"/></marker><marker id="a-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#2e9e6b"/></marker><marker id="a-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8a90b0"/></marker></defs>
+<rect width="2000" height="1330" fill="#f6f7fc"/>
+<text x="75" y="70" font-size="44" font-weight="800" fill="#1f2547" text-anchor="start">고객지원(support)의 연결 지도</text>
+<text x="75" y="112" font-size="24" font-weight="400" fill="#6b7194" text-anchor="start">에이전트 공통 구성안 기준 · 필수 = 시나리오 A에 필요, 2차 = 불량·반품 흐름과 시나리오 B 이후</text>
+<rect x="800.0" y="170.0" width="400" height="100" rx="22" fill="#e8e8fc" stroke="#5a54d6" stroke-width="3"/>
+<text x="1000" y="214" font-size="27" font-weight="800" fill="#1f2547" text-anchor="middle">통합 에이전트</text>
+<text x="1000" y="250" font-size="21" font-weight="400" fill="#6b7194" text-anchor="middle">orchestrator · 준하 · :8000</text>
+<rect x="50.0" y="565.0" width="300" height="110" rx="22" fill="#e8e8fc" stroke="#5a54d6" stroke-width="3"/>
+<text x="200" y="614" font-size="27" font-weight="800" fill="#1f2547" text-anchor="middle">마케팅</text>
+<text x="200" y="650" font-size="21" font-weight="400" fill="#6b7194" text-anchor="middle">marketing · 재헌 · :8103</text>
+<rect x="1520.0" y="275.0" width="400" height="110" rx="22" fill="#e8e8fc" stroke="#5a54d6" stroke-width="3"/>
+<text x="1720" y="324" font-size="27" font-weight="800" fill="#1f2547" text-anchor="middle">데이터분석</text>
+<text x="1720" y="360" font-size="21" font-weight="400" fill="#6b7194" text-anchor="middle">data · 재현 · :8106</text>
+<rect x="1580.0" y="795.0" width="360" height="110" rx="22" fill="#e8e8fc" stroke="#5a54d6" stroke-width="3"/>
+<text x="1760" y="844" font-size="27" font-weight="800" fill="#1f2547" text-anchor="middle">재무/정산</text>
+<text x="1760" y="880" font-size="21" font-weight="400" fill="#6b7194" text-anchor="middle">finance · 태윤 · :8105</text>
+<rect x="70.0" y="275.0" width="360" height="110" rx="22" fill="#e8e8fc" stroke="#5a54d6" stroke-width="3"/>
+<text x="250" y="324" font-size="27" font-weight="800" fill="#1f2547" text-anchor="middle">기획개발</text>
+<text x="250" y="360" font-size="21" font-weight="400" fill="#6b7194" text-anchor="middle">planning · 예진 · :8101</text>
+<rect x="70.0" y="825.0" width="360" height="110" rx="22" fill="#e8e8fc" stroke="#5a54d6" stroke-width="3"/>
+<text x="250" y="874" font-size="27" font-weight="800" fill="#1f2547" text-anchor="middle">인사</text>
+<text x="250" y="910" font-size="21" font-weight="400" fill="#6b7194" text-anchor="middle">hr · 준하 · :8104</text>
+<rect x="770.0" y="545.0" width="460" height="150" rx="22" fill="#e6f6ee" stroke="#2e9e6b" stroke-width="5"/>
+<text x="1000" y="614" font-size="30" font-weight="800" fill="#1f2547" text-anchor="middle">고객지원</text>
+<text x="1000" y="650" font-size="21" font-weight="400" fill="#6b7194" text-anchor="middle">support · 병환 · :8102 · agents/support</text>
+<line x1="1000" y1="270" x2="1000" y2="545" stroke="#8a90b0" stroke-width="4"/>
+<rect x="635.0" y="366.0" width="330" height="68" rx="12" fill="#f6f7fc" stroke="#c9cde0" stroke-width="2"/>
+<text x="800" y="397.0" font-size="21" font-weight="700" fill="#1f2547" text-anchor="middle">Task 분배 · ctx_inc_ 발급</text>
+<text x="800" y="424.0" font-size="21" font-weight="400" fill="#6b7194" text-anchor="middle">필수</text>
+<line x1="350" y1="620" x2="770" y2="620" stroke="#5a54d6" stroke-width="5" stroke-dasharray="14 10"/>
+<rect x="410.0" y="528.0" width="300" height="68" rx="12" fill="#f6f7fc" stroke="#c9cde0" stroke-width="2"/>
+<text x="560" y="559.0" font-size="21" font-weight="700" fill="#1f2547" text-anchor="middle">짝꿍 루프 ①~⑤ (필수)</text>
+<text x="560" y="586.0" font-size="21" font-weight="400" fill="#6b7194" text-anchor="middle">get_notice · issue_coupon</text>
+<line x1="1520" y1="360" x2="1215" y2="575" stroke="#2e9e6b" stroke-width="5"/>
+<rect x="1430.0" y="471.0" width="440" height="68" rx="12" fill="#f6f7fc" stroke="#c9cde0" stroke-width="2"/>
+<text x="1650" y="502.0" font-size="21" font-weight="700" fill="#1f2547" text-anchor="middle">분석 결과 전달 · 필수</text>
+<text x="1650" y="529.0" font-size="21" font-weight="400" fill="#6b7194" text-anchor="middle">impact_analysis (영향 고객·피해 금액)</text>
+<line x1="1580" y1="830" x2="1232" y2="690" stroke="#f2b84b" stroke-width="5" stroke-dasharray="4 8"/>
+<rect x="1260.0" y="606.0" width="340" height="68" rx="12" fill="#f6f7fc" stroke="#c9cde0" stroke-width="2"/>
+<text x="1430" y="637.0" font-size="21" font-weight="700" fill="#1f2547" text-anchor="middle">교차검증(B) · 2차</text>
+<text x="1430" y="664.0" font-size="21" font-weight="400" fill="#6b7194" text-anchor="middle">refund_request → verify_amount</text>
+<line x1="430" y1="345" x2="790" y2="575" stroke="#a9aed0" stroke-width="3" stroke-dasharray="4 8"/>
+<rect x="160.0" y="439.5" width="340" height="41" rx="12" fill="#f6f7fc" stroke="#c9cde0" stroke-width="2"/>
+<text x="330" y="470.5" font-size="21" font-weight="700" fill="#1f2547" text-anchor="middle">create_ticket (불량 패턴 · 선택)</text>
+<line x1="430" y1="860" x2="775" y2="665" stroke="#8a90b0" stroke-width="3"/>
+<rect x="130.0" y="726.0" width="340" height="68" rx="12" fill="#f6f7fc" stroke="#c9cde0" stroke-width="2"/>
+<text x="300" y="757.0" font-size="21" font-weight="700" fill="#1f2547" text-anchor="middle">record_case · decision_reason</text>
+<text x="300" y="784.0" font-size="21" font-weight="400" fill="#6b7194" text-anchor="middle">필수</text>
+<rect x="80.0" y="1020" width="400" height="150" rx="20" fill="#f1efe8" stroke="#b9b3a3" stroke-width="3" stroke-dasharray="10 8"/>
+<text x="280" y="1068" font-size="26" font-weight="800" fill="#1f2547" text-anchor="middle">shop-api · :8010</text>
+<text x="280" y="1104" font-size="20" font-weight="400" fill="#6b7194" text-anchor="middle">영수증 조회 · 환불 API</text>
+<text x="280" y="1136" font-size="20" font-weight="400" fill="#6b7194" text-anchor="middle">이벤트 발행 (재헌)</text>
+<rect x="560.0" y="1020" width="400" height="150" rx="20" fill="#f1efe8" stroke="#b9b3a3" stroke-width="3" stroke-dasharray="10 8"/>
+<text x="760" y="1068" font-size="26" font-weight="800" fill="#1f2547" text-anchor="middle">safety · :8001</text>
+<text x="760" y="1104" font-size="20" font-weight="400" fill="#6b7194" text-anchor="middle">execute() 관문 · C 보류 큐</text>
+<text x="760" y="1136" font-size="20" font-weight="400" fill="#6b7194" text-anchor="middle">10분 자동 거절 (태윤)</text>
+<rect x="1040.0" y="1020" width="400" height="150" rx="20" fill="#f1efe8" stroke="#b9b3a3" stroke-width="3" stroke-dasharray="10 8"/>
+<text x="1240" y="1068" font-size="26" font-weight="800" fill="#1f2547" text-anchor="middle">memory · :8002</text>
+<text x="1240" y="1104" font-size="20" font-weight="400" fill="#6b7194" text-anchor="middle">카드 검색·쓰기 (재현)</text>
+<text x="1240" y="1136" font-size="20" font-weight="400" fill="#6b7194" text-anchor="middle">case · notice · policy</text>
+<rect x="1520.0" y="1020" width="400" height="150" rx="20" fill="#f1efe8" stroke="#b9b3a3" stroke-width="3" stroke-dasharray="10 8"/>
+<text x="1720" y="1068" font-size="26" font-weight="800" fill="#1f2547" text-anchor="middle">dashboard-api · :8020</text>
+<text x="1720" y="1104" font-size="20" font-weight="400" fill="#6b7194" text-anchor="middle">공통 로그만 읽음 (병환)</text>
+<text x="1720" y="1136" font-size="20" font-weight="400" fill="#6b7194" text-anchor="middle">사건 흐름 · C 보류 승인</text>
+<line x1="870" y1="695" x2="280" y2="1020" stroke="#8a90b0" stroke-width="3"/>
+<line x1="930" y1="695" x2="760" y2="1020" stroke="#8a90b0" stroke-width="3"/>
+<line x1="1070" y1="695" x2="1240" y2="1020" stroke="#8a90b0" stroke-width="3"/>
+<line x1="1130" y1="695" x2="1720" y2="1020" stroke="#8a90b0" stroke-width="3"/>
+<line x1="75" y1="1255" x2="145" y2="1255" stroke="#8a90b0" stroke-width="5"/>
+<text x="160" y="1263" font-size="22" font-weight="400" fill="#6b7194" text-anchor="start">통합 에이전트 분배</text>
+<line x1="405" y1="1255" x2="475" y2="1255" stroke="#5a54d6" stroke-width="5" stroke-dasharray="14 10"/>
+<text x="490" y="1263" font-size="22" font-weight="400" fill="#6b7194" text-anchor="start">짝꿍 루프</text>
+<line x1="735" y1="1255" x2="805" y2="1255" stroke="#f2b84b" stroke-width="5" stroke-dasharray="4 8"/>
+<text x="820" y="1263" font-size="22" font-weight="400" fill="#6b7194" text-anchor="start">교차검증 (B)</text>
+<line x1="1065" y1="1255" x2="1135" y2="1255" stroke="#2e9e6b" stroke-width="5"/>
+<text x="1150" y="1263" font-size="22" font-weight="400" fill="#6b7194" text-anchor="start">분석 결과 전달</text>
+<rect x="1395" y="1235" width="36" height="36" rx="8" fill="#f1efe8" stroke="#b9b3a3" stroke-width="3" stroke-dasharray="8 6"/>
+<text x="1442" y="1263" font-size="22" font-weight="400" fill="#6b7194" text-anchor="start">점선 상자 = 서비스 (LLM 없음)</text></svg>

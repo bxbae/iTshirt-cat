@@ -1,13 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 1500" width="1800" height="1500" font-family="'Noto Sans CJK KR','Noto Sans KR','Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif">
 <defs><marker id="a-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#5a54d6"/></marker><marker id="a-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#2e9e6b"/></marker><marker id="a-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8a90b0"/></marker></defs>
 <rect width="1800" height="1500" fill="#f6f7fc"/>
-<text x="60" y="70" font-size="44" font-weight="800" fill="#1f2547" text-anchor="start">폴더 배치: 모노레포 + 독립 패키지 (제안)</text>
-<text x="60" y="112" font-size="24" font-weight="400" fill="#6b7194" text-anchor="start">굵은 초록 = 병환 담당 · 노란 점선 = 합의·승인이 필요한 공유/계약</text>
+<text x="60" y="70" font-size="44" font-weight="800" fill="#1f2547" text-anchor="start">레포 배치: ax-backend 모노레포 + 독립 패키지</text>
+<text x="60" y="112" font-size="24" font-weight="400" fill="#6b7194" text-anchor="start">굵은 초록 = 병환 담당 (agents/support :8102 · dashboard-api :8020 · dashboard-web :3001) · 노란 점선 = 승인이 필요한 공유 폴더</text>
 <rect x="40" y="150" width="1720" height="860" rx="30" fill="#ffffff" stroke="#c9cde0" stroke-width="3"/>
 <text x="75" y="205" font-size="31" font-weight="800" fill="#1f2547" text-anchor="start">ax-backend  (Python · uv workspace)</text>
 <rect x="75" y="235" width="400" height="110" rx="18" fill="#fff7e6" stroke="#f2b84b" stroke-width="4" stroke-dasharray="10 8"/>
 <text x="275.0" y="279" font-size="26" font-weight="800" fill="#1f2547" text-anchor="middle">contracts/</text>
-<text x="275.0" y="313" font-size="20" font-weight="400" fill="#6b7194" text-anchor="middle">원본 · 2명 승인 · schemas · openapi</text>
+<text x="275.0" y="313" font-size="20" font-weight="400" fill="#6b7194" text-anchor="middle">원본 · 2명 승인 · 준하·태윤</text>
 <rect x="500" y="235" width="360" height="110" rx="18" fill="#e8f0fe" stroke="#9db8e6" stroke-width="3"/>
 <text x="680.0" y="279" font-size="26" font-weight="800" fill="#1f2547" text-anchor="middle">agent-template</text>
 <text x="680.0" y="313" font-size="20" font-weight="400" fill="#6b7194" text-anchor="middle">execute 구현 · 준하</text>
@@ -16,7 +16,7 @@
 <text x="1060.0" y="313" font-size="20" font-weight="400" fill="#6b7194" text-anchor="middle">통합 에이전트 · 안전 레이어</text>
 <rect x="1260" y="235" width="460" height="110" rx="18" fill="#e8f0fe" stroke="#9db8e6" stroke-width="3"/>
 <text x="1490.0" y="279" font-size="26" font-weight="800" fill="#1f2547" text-anchor="middle">memory · shop-api</text>
-<text x="1490.0" y="313" font-size="20" font-weight="400" fill="#6b7194" text-anchor="middle">회사 기억 · 판매 사이트 서버</text>
+<text x="1490.0" y="313" font-size="20" font-weight="400" fill="#6b7194" text-anchor="middle">회사 기억 재현 · 판매 사이트 재헌</text>
 <rect x="75" y="375" width="560" height="110" rx="18" fill="#e6f6ee" stroke="#2e9e6b" stroke-width="5"/>
 <text x="355.0" y="419" font-size="26" font-weight="800" fill="#1f2547" text-anchor="middle">dashboard-api</text>
 <text x="355.0" y="453" font-size="20" font-weight="400" fill="#6b7194" text-anchor="middle">공통 로그 저장소만 읽음 · 병환</text>
@@ -44,10 +44,10 @@
 <text x="1090.0" y="819" font-size="26" font-weight="800" fill="#1f2547" text-anchor="middle">data</text>
 <text x="1090.0" y="853" font-size="20" font-weight="400" fill="#6b7194" text-anchor="middle">데이터분석 · 재현</text>
 <text x="1490" y="831" font-size="24" font-weight="800" fill="#7a4b00" text-anchor="middle">독립 패키지</text>
-<text x="1490" y="865" font-size="20" font-weight="400" fill="#7a4b00" text-anchor="middle">import 금지 · API·뷰로만</text>
+<text x="1490" y="865" font-size="20" font-weight="400" fill="#7a4b00" text-anchor="middle">import 금지 · import-linter</text>
 <rect x="1305" y="775" width="370" height="130" rx="18" fill="#fff7e6" stroke="#f2b84b" stroke-width="4" stroke-dasharray="10 8"/>
 <text x="1490" y="831" font-size="24" font-weight="800" fill="#7a4b00" text-anchor="middle">독립 패키지</text>
-<text x="1490" y="865" font-size="20" font-weight="400" fill="#7a4b00" text-anchor="middle">import 금지 · API·뷰로만</text>
+<text x="1490" y="865" font-size="20" font-weight="400" fill="#7a4b00" text-anchor="middle">import 금지 · import-linter</text>
 <text x="900" y="1058" font-size="24" font-weight="400" fill="#6b7194" text-anchor="middle">/api 호출만 · 백엔드 버전 태그의 openapi.json으로 타입 생성</text>
 <rect x="40" y="1085" width="1720" height="230" rx="30" fill="#ffffff" stroke="#c9cde0" stroke-width="3"/>
 <text x="75" y="1140" font-size="31" font-weight="800" fill="#1f2547" text-anchor="start">ax-frontend  (React · Vite · npm)</text>
