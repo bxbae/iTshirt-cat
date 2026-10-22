@@ -1,4 +1,4 @@
-# 캣북스 데모를 Windows에서 한 번에 실행합니다.
+﻿# 캣북스 데모를 Windows에서 한 번에 실행합니다.
 #   PowerShell:  powershell -ExecutionPolicy Bypass -File .\start.ps1
 #   또는 start.bat 더블클릭
 # 필요한 것: Python 3.11+ (python 또는 py), Node.js 20+
@@ -15,8 +15,8 @@ if (-not (Test-Path "backend\.venv")) {
   & backend\.venv\Scripts\python.exe -m pip install -q -r backend\requirements.txt
   if ($LASTEXITCODE -ne 0) { Write-Host "백엔드 패키지 설치에 실패했습니다."; exit 1 }
 }
-if (-not (Test-Path "frontend\node_modules")) {
-  Write-Host "> 프런트엔드 패키지 설치 (처음 한 번)"
+if (-not (Test-Path "frontend\node_modules\pretendard")) {
+  Write-Host "> 프런트엔드 패키지 설치 (처음 또는 패키지가 바뀐 경우)"
   Push-Location frontend
   npm.cmd install --no-audit --no-fund --loglevel=error
   if ($LASTEXITCODE -ne 0) { Pop-Location; Write-Host "프런트엔드 패키지 설치에 실패했습니다."; exit 1 }
