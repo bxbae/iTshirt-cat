@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ThemeProvider, themeInitScript } from "@/components/ThemeProvider";
 import { AuthProvider } from "@/lib/auth";
 import { CartProvider } from "@/lib/cart";
+import "pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css";
 import "./globals.css";
 
 export const metadata: Metadata = {
